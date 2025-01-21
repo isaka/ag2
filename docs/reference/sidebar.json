@@ -22,6 +22,7 @@
                 "reference/agentchat/contrib/capabilities/generate_images",
                 "reference/agentchat/contrib/capabilities/teachability",
                 "reference/agentchat/contrib/capabilities/text_compressors",
+                "reference/agentchat/contrib/capabilities/tools_capability",
                 "reference/agentchat/contrib/capabilities/transform_messages",
                 "reference/agentchat/contrib/capabilities/transforms",
                 "reference/agentchat/contrib/capabilities/transforms_util",
