@@ -23,7 +23,7 @@ single agent.
 
 Related tutorials: - [Tool Use](../../../../docs/tutorial/tool-use) -
 [Nested
-Chats](../../../../docs/tutorial/conversation-patterns#nested-chats)
+Chats](../../../../docs/user-guide/advanced-concepts/conversation-patterns-deep-dive#nested-chats)
 
 In this setting, each player is an agent backed by an LLM equipped two
 tools: - `get_legal_moves` to get a list of current legal moves. -
@@ -235,15 +235,12 @@ the move made, and this message is then sent to the other player agent.
 The following diagram illustrates the nested chat between the player
 agent and the board agent.
 
-<figure>
 <img
 src="https://media.githubusercontent.com/media/ag2ai/ag2/main/notebook/nested-chats-chess.png"
 alt="Conversational Chess" />
-<figcaption aria-hidden="true">Conversational Chess</figcaption>
-</figure>
 
 See [nested chats tutorial
-chapter](../../../../docs/tutorial/conversation-patterns#nested-chats)
+chapter](../../../../docs/user-guide/advanced-concepts/conversation-patterns-deep-dive#nested-chats)
 for more information.
 
 ```python
@@ -850,3 +847,7 @@ In the output above, you can see “Start a new chat” is displayed
 whenever a new nested chat is started between the board proxy agent and
 a player agent. The “carryover” is empty as it is a new chat in the
 sequence.
+
+<div className="edit-url-container">
+    <a className="edit-url" href="https://github.com/ag2ai/ag2/edit/main/notebook/agentchat_nested_chats_chess.ipynb" target='_blank'><Icon icon="pen" iconType="solid" size="13px"/> Edit this page</a>
+</div>

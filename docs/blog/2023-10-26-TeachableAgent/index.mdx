@@ -79,7 +79,7 @@ from autogen import ConversableAgent  # As an example
 
 ```python
 # Load LLM inference endpoints from an env variable or a file
-# See https://docs.ag2.ai/docs/FAQ#set-your-api-endpoints
+# See https://docs.ag2.ai/docs/user-guide/advanced-concepts/llm-configuration-deep-dive#llm-configuration
 # and OAI_CONFIG_LIST_sample
 filter_dict = {"model": ["gpt-4"]}  # GPT-3.5 is less reliable than GPT-4 at learning from user feedback.
 config_list = config_list_from_json(env_or_file="OAI_CONFIG_LIST", filter_dict=filter_dict)
@@ -420,3 +420,7 @@ The solution is: 8 * 3 + 7 * 5
 ## Conclusion
 
 `Teachability` is still under active research and development. For any problems you find or improvements you have in mind, please join our discussions in this repo and on our [Discord channel](https://discord.gg/pAbnFJrkgZ). We look forward to seeing how you and the rest of the community can use and improve teachable agents in AutoGen!
+<div className="edit-url-container">
+    <a className="edit-url" href="https://github.com/ag2ai/ag2/edit/main/website/_blogs/2023-10-26-TeachableAgent/index.mdx" target='_blank'><Icon icon="pen" iconType="solid" size="13px"/> Edit this page</a>
+</div>
+
