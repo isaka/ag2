@@ -169,6 +169,7 @@
           "pages": [
             "docs/use-cases/reference-agents/index",
             "docs/use-cases/reference-agents/captainagent",
+            "docs/use-cases/reference-agents/communication-agents",
             "docs/use-cases/reference-agents/reasoningagent",
             "docs/use-cases/reference-agents/websurferagent"
           ]
@@ -1345,8 +1346,7 @@
                 "docs/api-reference/autogen/graph_utils/overview",
                 "docs/api-reference/autogen/graph_utils/check_graph_validity",
                 "docs/api-reference/autogen/graph_utils/has_self_loops",
-                "docs/api-reference/autogen/graph_utils/invert_disallowed_to_allowed",
-                "docs/api-reference/autogen/graph_utils/visualize_speaker_transitions_dict"
+                "docs/api-reference/autogen/graph_utils/invert_disallowed_to_allowed"
               ]
             },
             {
