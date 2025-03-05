@@ -38,7 +38,7 @@ Solving with GPT-4](https://arxiv.org/abs/2306.01337) or the
 Some extra dependencies are needed for this notebook, which can be installed via pip:
 
 ```bash
-pip install pyautogen[mathchat]
+pip install pyautogen[openai,mathchat]
 ```
 
 For more information, please refer to the [installation guide](/docs/user-guide/basic-concepts/installing-ag2).
@@ -207,8 +207,7 @@ mathproxyagent.initiate_chat(assistant, message=mathproxyagent.message_generator
 MathChat allows different prompts that instruct the assistant to solve
 the problem.
 
-Check out `MathUserProxyAgent.message_generator`:
-<!-- TODO: Revise this doc accordingly --> - You may choose from
+Check out `MathUserProxyAgent.message_generator`: - You may choose from
 `['default', 'python', 'two_tools']` for parameter `prompt_type`. We
 include two more prompts in the paper: 1. `'python'` is a simplified
 prompt from the default prompt that uses Python only. 2. `'two_tools'`

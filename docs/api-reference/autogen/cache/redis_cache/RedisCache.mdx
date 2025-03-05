@@ -8,7 +8,7 @@ title: autogen.cache.redis_cache.RedisCache
 </h2>
 
 ```python
-RedisCache(**kwargs)
+RedisCache(seed: str | int, redis_url: str)
 ```
 
     Implementation of AbstractCache using the Redis database.<br/>This class provides a concrete implementation of the AbstractCache
@@ -17,24 +17,65 @@ RedisCache(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `seed` | **Type:** str \| int |
+| `redis_url` | **Type:** str |
 
-### Class Attributes
+### Instance Methods
 
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### close
+
+```python
+close(self) -> None
+```
+
+    Close the Redis client.<br/>Perform any necessary cleanup, such as closing network connections.
+
 <br />
 
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### get
+
+```python
+get(
+    self,
+    key: str,
+    default: Any | None = None
+) -> Any | None
+```
+
+    Retrieve an item from the Redis cache.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `key` | The key identifying the item in the cache.<br/><br/>**Type:** str |
+| `default` | The default value to return if the key is not found.<br/><br/>Defaults to None.<br/><br/>**Type:** Any \| None<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| Any \| None | The deserialized value associated with the key if found, else the default value. |
+
 <br />
 
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### set
-<br />
 
-    <br />
+```python
+set(
+    self,
+    key: str,
+    value: Any
+) -> None
+```
+
+    Set an item in the Redis cache.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `key` | The key under which the item is to be stored.<br/><br/>**Type:** str |
+| `value` | The value to be stored in the cache.<br/><br/>**Type:** Any |
+
+<br />

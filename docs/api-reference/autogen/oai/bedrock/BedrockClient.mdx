@@ -8,7 +8,7 @@ title: autogen.oai.bedrock.BedrockClient
 </h2>
 
 ```python
-BedrockClient(**kwargs)
+BedrockClient(**kwargs: Any)
 ```
 
     Client for Amazon's Bedrock Converse API.<br/>Initialises BedrockClient for Amazon's Bedrock Converse API
@@ -16,42 +16,103 @@ BedrockClient(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `**kwargs` | **Type:** Any |
 
-### Class Attributes
+### Instance Methods
 
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### cost
+
+```python
+cost(self, response: ChatCompletion) -> float
+```
+
+    Calculate the cost of the response.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `response` | **Type:** ChatCompletion |
+
 <br />
 
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### create
+
+```python
+create(self, params) -> ChatCompletionExtended
+```
+
+    Run Amazon Bedrock inference and return AG2 response
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `params` |  |
+
 <br />
 
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### get_usage
+
+```python
+get_usage(response) -> dict
+```
+
+    Get the usage of tokens and their cost information.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `response` |  |
+
 <br />
 
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### message_retrieval
+
+```python
+message_retrieval(self, response) -> 
+```
+
+    Retrieve the messages from the response.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `response` |  |
+
 <br />
 
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### parse_custom_params
+
+```python
+parse_custom_params(self, params: dict[str, Any]) -> 
+```
+
+    Parses custom parameters for logic in this client class
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `params` | **Type:** dict[str, Any] |
+
 <br />
 
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### parse_params
-<br />
 
-    <br />
+```python
+parse_params(self, params: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]
+```
+
+    Loads the valid parameters required to invoke Bedrock Converse
+    Returns a tuple of (base_params, additional_params)
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `params` | **Type:** dict[str, Any] |
+
+<br />

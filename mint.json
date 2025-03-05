@@ -8,7 +8,7 @@
   "metadata": {
     "og:image": "https://media.githubusercontent.com/media/ag2ai/ag2/refs/heads/main/website/static/img/cover.png"
   },
-  "favicon": "/logo/ag2.svg",
+  "favicon": "/logo/favicon.svg",
   "analytics": {
     "ga4": {
       "measurementId": "G-2GN2KN2CE4"
@@ -125,7 +125,22 @@
                 "docs/user-guide/basic-concepts/orchestration/ending-a-chat"
               ]
             },
-            "docs/user-guide/basic-concepts/tools"
+            {
+              "group": "Tools",
+              "pages": [
+                "docs/user-guide/basic-concepts/tools/index",
+                "docs/user-guide/basic-concepts/tools/basics",
+                "docs/user-guide/basic-concepts/tools/tools-with-secrets",
+                {
+                  "group": "Interoperability",
+                  "pages": [
+                    "docs/user-guide/basic-concepts/tools/interop/langchain",
+                    "docs/user-guide/basic-concepts/tools/interop/crewai",
+                    "docs/user-guide/basic-concepts/tools/interop/pydanticai"
+                  ]
+                }
+              ]
+            }
           ]
         },
         {
@@ -150,7 +165,6 @@
               ]
             },
             "docs/user-guide/advanced-concepts/code-execution",
-            "docs/user-guide/advanced-concepts/tools-with-secrets",
             "docs/user-guide/advanced-concepts/conversation-patterns-deep-dive",
             "docs/user-guide/advanced-concepts/llm-configuration-deep-dive"
           ]
@@ -158,7 +172,6 @@
         {
           "group": "Model Providers",
           "pages": [
-            "docs/user-guide/models/openai",
             "docs/user-guide/models/amazon-bedrock",
             "docs/user-guide/models/anthropic",
             "docs/user-guide/models/cerebras",
@@ -167,10 +180,19 @@
             "docs/user-guide/models/google-gemini",
             "docs/user-guide/models/google-vertexai",
             "docs/user-guide/models/groq",
-            "docs/user-guide/models/litellm-with-watsonx",
+            {
+              "group": "LiteLLM Proxy Server",
+              "pages": [
+                "docs/user-guide/models/litellm-proxy-server/installation",
+                "docs/user-guide/models/litellm-proxy-server/openai",
+                "docs/user-guide/models/litellm-proxy-server/azure",
+                "docs/user-guide/models/litellm-proxy-server/watsonx"
+              ]
+            },
             "docs/user-guide/models/lm-studio",
             "docs/user-guide/models/mistralai",
             "docs/user-guide/models/ollama",
+            "docs/user-guide/models/openai",
             "docs/user-guide/models/togetherai",
             "docs/user-guide/models/vLLM"
           ]
@@ -181,9 +203,19 @@
             "docs/user-guide/reference-agents/index",
             "docs/user-guide/reference-agents/captainagent",
             "docs/user-guide/reference-agents/communication-agents",
-            "docs/user-guide/reference-agents/documentagent",
+            "docs/user-guide/reference-agents/docagent",
             "docs/user-guide/reference-agents/reasoningagent",
-            "docs/user-guide/reference-agents/websurferagent"
+            "docs/user-guide/reference-agents/websurferagent",
+            "docs/user-guide/reference-agents/deepresearchagent"
+          ]
+        },
+        {
+          "group": "Reference Tools",
+          "pages": [
+            "docs/user-guide/reference-tools/index",
+            "docs/user-guide/reference-tools/browser-use",
+            "docs/user-guide/reference-tools/crawl4ai",
+            "docs/user-guide/reference-tools/deep-research"
           ]
         }
       ]
@@ -203,111 +235,111 @@
           "group": "Notebooks",
           "pages": [
             "docs/use-cases/notebooks/Notebooks",
-            "docs/use-cases/notebooks/notebooks/agentchat_multi_task_chats",
-            "docs/use-cases/notebooks/notebooks/agentchat_multi_task_async_chats",
-            "docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat",
-            "docs/use-cases/notebooks/notebooks/agentchat_stream",
-            "docs/use-cases/notebooks/notebooks/async_human_input",
-            "docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_mongodb",
-            "docs/use-cases/notebooks/notebooks/agentchat_langchain",
-            "docs/use-cases/notebooks/notebooks/agentchat_auto_feedback_from_code_execution",
-            "docs/use-cases/notebooks/notebooks/agentchat_logging",
-            "docs/use-cases/notebooks/notebooks/agentchat_dalle_and_gpt4v",
-            "docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_qdrant",
-            "docs/use-cases/notebooks/notebooks/agentchat_swarm_enhanced",
-            "docs/use-cases/notebooks/notebooks/agentchat_video_transcript_translate_with_whisper",
-            "docs/use-cases/notebooks/notebooks/agentchat_agentops",
-            "docs/use-cases/notebooks/notebooks/agentchat_groupchat_vis",
-            "docs/use-cases/notebooks/notebooks/agentchat_reasoning_agent",
-            "docs/use-cases/notebooks/notebooks/agents_deep_researcher",
-            "docs/use-cases/notebooks/notebooks/tools_dependency_injection",
-            "docs/use-cases/notebooks/notebooks/autogen_uniformed_api_calling",
-            "docs/use-cases/notebooks/notebooks/agentchat_sql_spider",
-            "docs/use-cases/notebooks/notebooks/tools_browser_use_deepseek",
-            "docs/use-cases/notebooks/notebooks/agentchat_captainagent",
-            "docs/use-cases/notebooks/notebooks/tools_browser_use",
-            "docs/use-cases/notebooks/notebooks/agentchat_teaching",
-            "docs/use-cases/notebooks/notebooks/agentchat_function_call_code_writing",
-            "docs/use-cases/notebooks/notebooks/agentchat_inception_function",
-            "docs/use-cases/notebooks/notebooks/agentchat_tabular_data_rag_workflow",
-            "docs/use-cases/notebooks/notebooks/agentchat_realtime_gemini_swarm_websocket",
-            "docs/use-cases/notebooks/notebooks/agentchat_graph_rag_falkordb",
-            "docs/use-cases/notebooks/notebooks/agentchat_teachable_oai_assistants",
-            "docs/use-cases/notebooks/notebooks/tools_interoperability",
-            "docs/use-cases/notebooks/notebooks/agentchat_realtime_websocket",
-            "docs/use-cases/notebooks/notebooks/agents_document_agent",
-            "docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_pgvector",
-            "docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_twoagents_basic",
-            "docs/use-cases/notebooks/notebooks/agentchat_nestedchat",
-            "docs/use-cases/notebooks/notebooks/agentchat_oai_code_interpreter",
-            "docs/use-cases/notebooks/notebooks/agentchat_groupchat_customized",
-            "docs/use-cases/notebooks/notebooks/agentchat_structured_outputs",
-            "docs/use-cases/notebooks/notebooks/agentchat_custom_model",
             "docs/use-cases/notebooks/notebooks/autobuild_basic",
-            "docs/use-cases/notebooks/notebooks/agentchat_groupchat_finite_state_machine",
-            "docs/use-cases/notebooks/notebooks/agentchat_graph_rag_neo4j",
-            "docs/use-cases/notebooks/notebooks/agentchat_databricks_dbrx",
-            "docs/use-cases/notebooks/notebooks/lats_search",
-            "docs/use-cases/notebooks/notebooks/agentchat_swarm_graphrag_telemetry_trip_planner",
-            "docs/use-cases/notebooks/notebooks/agentchat_society_of_mind",
+            "docs/use-cases/notebooks/notebooks/tools_dependency_injection",
+            "docs/use-cases/notebooks/notebooks/agentchat_teachability",
+            "docs/use-cases/notebooks/notebooks/agentchat_nestedchat",
+            "docs/use-cases/notebooks/notebooks/agentchat_agentops",
+            "docs/use-cases/notebooks/notebooks/config_loader_utility_functions",
+            "docs/use-cases/notebooks/notebooks/agentchat_websockets",
+            "docs/use-cases/notebooks/notebooks/autogen_uniformed_api_calling",
+            "docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_retrieval",
+            "docs/use-cases/notebooks/notebooks/gpt_assistant_agent_function_call",
+            "docs/use-cases/notebooks/notebooks/agentchat_custom_model",
+            "docs/use-cases/notebooks/notebooks/agentchat_tabular_data_rag_workflow",
+            "docs/use-cases/notebooks/notebooks/agentchat_groupchat_customized",
+            "docs/use-cases/notebooks/notebooks/agentchat_realtime_swarm_webrtc",
+            "docs/use-cases/notebooks/notebooks/agentchat_human_feedback",
+            "docs/use-cases/notebooks/notebooks/agentchat_webscraping_with_apify",
+            "docs/use-cases/notebooks/notebooks/agentchat_swarm",
+            "docs/use-cases/notebooks/notebooks/agentchat_function_call_currency_calculator",
+            "docs/use-cases/notebooks/notebooks/agentchat_with_memory",
+            "docs/use-cases/notebooks/notebooks/agentchat_realtime_gemini_swarm_websocket",
+            "docs/use-cases/notebooks/notebooks/agentchat_nested_sequential_chats",
+            "docs/use-cases/notebooks/notebooks/agentchat_teaching",
+            "docs/use-cases/notebooks/notebooks/agentchat_swarm_w_groupchat_legacy",
             "docs/use-cases/notebooks/notebooks/agentchat_groupchat_research",
-            "docs/use-cases/notebooks/notebooks/agentchat_groupchat",
-            "docs/use-cases/notebooks/notebooks/agentchat_groupchat_stateflow",
-            "docs/use-cases/notebooks/notebooks/agentchat_lmm_llava",
-            "docs/use-cases/notebooks/notebooks/agentchat_swarm_graphrag_trip_planner",
-            "docs/use-cases/notebooks/notebooks/agentchat_two_users",
+            "docs/use-cases/notebooks/notebooks/agentchat_cost_token_tracking",
+            "docs/use-cases/notebooks/notebooks/agentchat_planning",
+            "docs/use-cases/notebooks/notebooks/tools_browser_use_deepseek",
+            "docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_function_call",
+            "docs/use-cases/notebooks/notebooks/agentchat_realtime_gemini_websocket",
+            "docs/use-cases/notebooks/notebooks/agentchat_multi_task_async_chats",
             "docs/use-cases/notebooks/notebooks/agentchat_memory_using_mem0",
+            "docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_twoagents_basic",
+            "docs/use-cases/notebooks/notebooks/agenteval_cq_math",
+            "docs/use-cases/notebooks/notebooks/tools_browser_use",
+            "docs/use-cases/notebooks/notebooks/agentchat_groupchat_RAG",
+            "docs/use-cases/notebooks/notebooks/tools_interoperability",
+            "docs/use-cases/notebooks/notebooks/agentchat_oai_code_interpreter",
+            "docs/use-cases/notebooks/notebooks/agentchat_langchain",
+            "docs/use-cases/notebooks/notebooks/agentchat_graph_rag_neo4j",
+            "docs/use-cases/notebooks/notebooks/agentchat_assistant_agent_standalone",
+            "docs/use-cases/notebooks/notebooks/agentchat_groupchat_stateflow",
+            "docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat",
+            "docs/use-cases/notebooks/notebooks/agentchat_reasoning_agent",
+            "docs/use-cases/notebooks/notebooks/agentchat_image_generation_capability",
+            "docs/use-cases/notebooks/notebooks/agents_deep_researcher",
+            "docs/use-cases/notebooks/notebooks/agentchat_swarm_enhanced",
+            "docs/use-cases/notebooks/notebooks/agentchat_structured_outputs_from_config",
+            "docs/use-cases/notebooks/notebooks/agentchat_openlit",
+            "docs/use-cases/notebooks/notebooks/agentchat_web_info",
+            "docs/use-cases/notebooks/notebooks/agentchat_auto_feedback_from_code_execution",
+            "docs/use-cases/notebooks/notebooks/agentchat_realtime_webrtc",
+            "docs/use-cases/notebooks/notebooks/agentchat_multi_task_chats",
+            "docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_qdrant",
+            "docs/use-cases/notebooks/notebooks/agentchat_function_call_code_writing",
+            "docs/use-cases/notebooks/notebooks/agentchat_logging",
+            "docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_mongodb",
+            "docs/use-cases/notebooks/notebooks/agents_websurfer",
+            "docs/use-cases/notebooks/notebooks/agentchat_graph_rag_falkordb",
+            "docs/use-cases/notebooks/notebooks/agentchat_function_call",
             "docs/use-cases/notebooks/notebooks/agentchat_transform_messages",
+            "docs/use-cases/notebooks/notebooks/agentchat_captainagent",
+            "docs/use-cases/notebooks/notebooks/agentchat_groupchat_finite_state_machine",
+            "docs/use-cases/notebooks/notebooks/agentchat_nestedchat_optiguide",
+            "docs/use-cases/notebooks/notebooks/agentchat_groupchat_vis",
+            "docs/use-cases/notebooks/notebooks/JSON_mode_example",
+            "docs/use-cases/notebooks/notebooks/agentchat_video_transcript_translate_with_whisper",
+            "docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_groupchat",
+            "docs/use-cases/notebooks/notebooks/agentchat_stream",
+            "docs/use-cases/notebooks/notebooks/agentchat_lmm_gpt-4v",
+            "docs/use-cases/notebooks/notebooks/agentchat_guidance",
+            "docs/use-cases/notebooks/notebooks/agentchat_sql_spider",
+            "docs/use-cases/notebooks/notebooks/agentchat_nested_chats_chess_altmodels",
+            "docs/use-cases/notebooks/notebooks/agentchat_groupchat",
+            "docs/use-cases/notebooks/notebooks/agentchat_inception_function",
+            "docs/use-cases/notebooks/notebooks/agentchat_teachable_oai_assistants",
+            "docs/use-cases/notebooks/notebooks/agentchat_databricks_dbrx",
+            "docs/use-cases/notebooks/notebooks/async_human_input",
+            "docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_pgvector",
+            "docs/use-cases/notebooks/notebooks/agentchat_group_chat_with_llamaindex_agents",
+            "docs/use-cases/notebooks/notebooks/tools_commsplatforms",
+            "docs/use-cases/notebooks/notebooks/tools_chat_context_dependency_injection",
+            "docs/use-cases/notebooks/notebooks/agentchat_structured_outputs",
+            "docs/use-cases/notebooks/notebooks/agentchat_swarm_graphrag_trip_planner",
+            "docs/use-cases/notebooks/notebooks/agentchat_realtime_swarm",
+            "docs/use-cases/notebooks/notebooks/agentchat_small_llm_rag_planning",
+            "docs/use-cases/notebooks/notebooks/agentchat_azr_ai_search",
+            "docs/use-cases/notebooks/notebooks/tools_crawl4ai",
+            "docs/use-cases/notebooks/notebooks/agentchat_realtime_websocket",
+            "docs/use-cases/notebooks/notebooks/agentchat_swarm_graphrag_telemetry_trip_planner",
             "docs/use-cases/notebooks/notebooks/agentchat_agentoptimizer",
             "docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_couchbase",
-            "docs/use-cases/notebooks/notebooks/agentchat_openlit",
-            "docs/use-cases/notebooks/notebooks/agentchat_teachability",
-            "docs/use-cases/notebooks/notebooks/agentchat_realtime_swarm_websocket",
-            "docs/use-cases/notebooks/notebooks/agentchat_nested_chats_chess_altmodels",
-            "docs/use-cases/notebooks/notebooks/agentchat_nested_sequential_chats",
-            "docs/use-cases/notebooks/notebooks/config_loader_utility_functions",
-            "docs/use-cases/notebooks/notebooks/agentchat_function_call_currency_calculator",
-            "docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_function_call",
-            "docs/use-cases/notebooks/notebooks/agentchat_webscraping_with_apify",
-            "docs/use-cases/notebooks/notebooks/agentchat_with_memory",
-            "docs/use-cases/notebooks/notebooks/agentchat_planning",
-            "docs/use-cases/notebooks/notebooks/agenteval_cq_math",
-            "docs/use-cases/notebooks/notebooks/agentchat_realtime_webrtc",
-            "docs/use-cases/notebooks/notebooks/autobuild_agent_library",
-            "docs/use-cases/notebooks/notebooks/agentchat_group_chat_with_llamaindex_agents",
-            "docs/use-cases/notebooks/notebooks/agentchat_guidance",
-            "docs/use-cases/notebooks/notebooks/agentchat_realtime_swarm_webrtc",
-            "docs/use-cases/notebooks/notebooks/agentchat_captainagent_crosstool",
-            "docs/use-cases/notebooks/notebooks/agentchat_realtime_swarm",
-            "docs/use-cases/notebooks/notebooks/agentchat_websockets",
-            "docs/use-cases/notebooks/notebooks/agentchat_web_info",
-            "docs/use-cases/notebooks/notebooks/agentchat_human_feedback",
-            "docs/use-cases/notebooks/notebooks/agentchat_azr_ai_search",
-            "docs/use-cases/notebooks/notebooks/agentchat_swarm_w_groupchat_legacy",
-            "docs/use-cases/notebooks/notebooks/agentchat_function_call",
-            "docs/use-cases/notebooks/notebooks/agentchat_MathChat",
-            "docs/use-cases/notebooks/notebooks/agentchat_small_llm_rag_planning",
-            "docs/use-cases/notebooks/notebooks/agentchat_groupchat_RAG",
-            "docs/use-cases/notebooks/notebooks/agentchat_structured_outputs_from_config",
-            "docs/use-cases/notebooks/notebooks/agentchat_assistant_agent_standalone",
-            "docs/use-cases/notebooks/notebooks/agentchat_nested_chats_chess",
-            "docs/use-cases/notebooks/notebooks/agentchat_swarm",
-            "docs/use-cases/notebooks/notebooks/agentchat_nestedchat_optiguide",
-            "docs/use-cases/notebooks/notebooks/agentchat_cost_token_tracking",
-            "docs/use-cases/notebooks/notebooks/gpt_assistant_agent_function_call",
-            "docs/use-cases/notebooks/notebooks/tools_commsplatforms",
-            "docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_retrieval",
-            "docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_groupchat",
-            "docs/use-cases/notebooks/notebooks/agentchat_function_call_async",
-            "docs/use-cases/notebooks/notebooks/agentchat_image_generation_capability",
-            "docs/use-cases/notebooks/notebooks/tools_chat_context_dependency_injection",
-            "docs/use-cases/notebooks/notebooks/agentchats_sequential_chats",
-            "docs/use-cases/notebooks/notebooks/agentchat_lmm_gpt-4v",
-            "docs/use-cases/notebooks/notebooks/JSON_mode_example",
             "docs/use-cases/notebooks/notebooks/agentchat_graph_rag_neo4j_native",
-            "docs/use-cases/notebooks/notebooks/tools_crawl4ai",
-            "docs/use-cases/notebooks/notebooks/agents_websurfer",
-            "docs/use-cases/notebooks/notebooks/agentchat_realtime_gemini_websocket"
+            "docs/use-cases/notebooks/notebooks/autobuild_agent_library",
+            "docs/use-cases/notebooks/notebooks/agentchat_nested_chats_chess",
+            "docs/use-cases/notebooks/notebooks/agentchat_function_call_async",
+            "docs/use-cases/notebooks/notebooks/agentchat_society_of_mind",
+            "docs/use-cases/notebooks/notebooks/lats_search",
+            "docs/use-cases/notebooks/notebooks/agentchat_lmm_llava",
+            "docs/use-cases/notebooks/notebooks/agentchat_dalle_and_gpt4v",
+            "docs/use-cases/notebooks/notebooks/agentchat_two_users",
+            "docs/use-cases/notebooks/notebooks/agentchat_realtime_swarm_websocket",
+            "docs/use-cases/notebooks/notebooks/agentchat_captainagent_crosstool",
+            "docs/use-cases/notebooks/notebooks/agentchats_sequential_chats",
+            "docs/use-cases/notebooks/notebooks/agents_docagent",
+            "docs/use-cases/notebooks/notebooks/agentchat_MathChat"
           ]
         },
         "docs/use-cases/community-gallery/community-gallery"
@@ -321,6 +353,22 @@
         "docs/contributor-guide/documentation",
         "docs/contributor-guide/file-bug-report",
         "docs/contributor-guide/maintainer",
+        {
+          "group": "How AG2 Works",
+          "pages": [
+            "docs/contributor-guide/how-ag2-works/overview",
+            "docs/contributor-guide/how-ag2-works/initiate-chat",
+            "docs/contributor-guide/how-ag2-works/generate-reply",
+            "docs/contributor-guide/how-ag2-works/hooks"
+          ]
+        },
+        {
+          "group": "Building Agents & Tools",
+          "pages": [
+            "docs/contributor-guide/building/creating-a-tool",
+            "docs/contributor-guide/building/creating-an-agent"
+          ]
+        },
         "docs/contributor-guide/pre-commit",
         "docs/contributor-guide/tests",
         "docs/contributor-guide/Research"
@@ -375,11 +423,9 @@
             "docs/api-reference/autogen/ON_CONDITION",
             "docs/api-reference/autogen/OnCondition",
             "docs/api-reference/autogen/OpenAIWrapper",
-            "docs/api-reference/autogen/ReasoningAgent",
             "docs/api-reference/autogen/SenderRequiredError",
             "docs/api-reference/autogen/SwarmAgent",
             "docs/api-reference/autogen/SwarmResult",
-            "docs/api-reference/autogen/ThinkNode",
             "docs/api-reference/autogen/UPDATE_SYSTEM_MESSAGE",
             "docs/api-reference/autogen/UndefinedNextAgentError",
             "docs/api-reference/autogen/UpdateSystemMessage",
@@ -397,7 +443,6 @@
             "docs/api-reference/autogen/initiate_swarm_chat",
             "docs/api-reference/autogen/register_function",
             "docs/api-reference/autogen/register_hand_off",
-            "docs/api-reference/autogen/visualize_tree",
             {
               "group": "agentchat",
               "pages": [
@@ -925,7 +970,14 @@
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/img_utils/overview",
                         "docs/api-reference/autogen/agentchat/contrib/img_utils/convert_base64_to_data_uri",
-                        "docs/api-reference/autogen/agentchat/contrib/img_utils/extract_img_paths"
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/extract_img_paths",
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/get_image_data",
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/get_pil_image",
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/gpt4v_formatter",
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/llava_formatter",
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/message_formatter_pil_to_b64",
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/num_tokens_from_gpt_image",
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/pil_to_data_uri"
                       ]
                     },
                     {
@@ -940,7 +992,8 @@
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/llava_agent/overview",
                         "docs/api-reference/autogen/agentchat/contrib/llava_agent/LLaVAAgent",
-                        "docs/api-reference/autogen/agentchat/contrib/llava_agent/llava_call"
+                        "docs/api-reference/autogen/agentchat/contrib/llava_agent/llava_call",
+                        "docs/api-reference/autogen/agentchat/contrib/llava_agent/llava_call_binary"
                       ]
                     },
                     {
@@ -963,22 +1016,17 @@
                       "group": "qdrant_retrieve_user_proxy_agent",
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/qdrant_retrieve_user_proxy_agent/overview",
-                        "docs/api-reference/autogen/agentchat/contrib/qdrant_retrieve_user_proxy_agent/QdrantRetrieveUserProxyAgent"
+                        "docs/api-reference/autogen/agentchat/contrib/qdrant_retrieve_user_proxy_agent/QdrantRetrieveUserProxyAgent",
+                        "docs/api-reference/autogen/agentchat/contrib/qdrant_retrieve_user_proxy_agent/create_qdrant_from_dir",
+                        "docs/api-reference/autogen/agentchat/contrib/qdrant_retrieve_user_proxy_agent/query_qdrant"
                       ]
                     },
                     {
                       "group": "rag",
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/rag/overview",
-                        "docs/api-reference/autogen/agentchat/contrib/rag/VectorDbQueryEngine"
-                      ]
-                    },
-                    {
-                      "group": "reasoning_agent",
-                      "pages": [
-                        "docs/api-reference/autogen/agentchat/contrib/reasoning_agent/overview",
-                        "docs/api-reference/autogen/agentchat/contrib/reasoning_agent/extract_rlhf_preference_dataset",
-                        "docs/api-reference/autogen/agentchat/contrib/reasoning_agent/extract_sft_dataset"
+                        "docs/api-reference/autogen/agentchat/contrib/rag/ChromaDBQueryEngine",
+                        "docs/api-reference/autogen/agentchat/contrib/rag/RAGQueryEngine"
                       ]
                     },
                     {
@@ -1010,7 +1058,6 @@
                         "docs/api-reference/autogen/agentchat/contrib/swarm_agent/ContextStr",
                         "docs/api-reference/autogen/agentchat/contrib/swarm_agent/ON_CONDITION",
                         "docs/api-reference/autogen/agentchat/contrib/swarm_agent/SwarmAgent",
-                        "docs/api-reference/autogen/agentchat/contrib/swarm_agent/SwarmResult",
                         "docs/api-reference/autogen/agentchat/contrib/swarm_agent/create_swarm_transition",
                         "docs/api-reference/autogen/agentchat/contrib/swarm_agent/register_hand_off"
                       ]
@@ -1184,36 +1231,40 @@
               "group": "agents",
               "pages": [
                 {
+                  "group": "contrib",
+                  "pages": [
+                    "docs/api-reference/autogen/agents/contrib/overview",
+                    "docs/api-reference/autogen/agents/contrib/TimeReplyAgent",
+                    "docs/api-reference/autogen/agents/contrib/TimeToolAgent"
+                  ]
+                },
+                {
                   "group": "experimental",
                   "pages": [
                     "docs/api-reference/autogen/agents/experimental/overview",
                     "docs/api-reference/autogen/agents/experimental/DeepResearchAgent",
                     "docs/api-reference/autogen/agents/experimental/DiscordAgent",
+                    "docs/api-reference/autogen/agents/experimental/DocAgent",
                     "docs/api-reference/autogen/agents/experimental/DoclingDocIngestAgent",
-                    "docs/api-reference/autogen/agents/experimental/DocumentAgent",
+                    "docs/api-reference/autogen/agents/experimental/InMemoryQueryEngine",
+                    "docs/api-reference/autogen/agents/experimental/ReasoningAgent",
                     "docs/api-reference/autogen/agents/experimental/SlackAgent",
                     "docs/api-reference/autogen/agents/experimental/TelegramAgent",
+                    "docs/api-reference/autogen/agents/experimental/ThinkNode",
+                    "docs/api-reference/autogen/agents/experimental/VectorChromaQueryEngine",
                     "docs/api-reference/autogen/agents/experimental/WebSurferAgent",
                     {
                       "group": "document_agent",
                       "pages": [
                         "docs/api-reference/autogen/agents/experimental/document_agent/overview",
+                        "docs/api-reference/autogen/agents/experimental/document_agent/docling_parse_docs",
                         "docs/api-reference/autogen/agents/experimental/document_agent/handle_input",
                         {
-                          "group": "docling_query_engine",
+                          "group": "url_utils",
                           "pages": [
-                            "docs/api-reference/autogen/agents/experimental/document_agent/docling_query_engine/overview",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/docling_query_engine/DoclingMdQueryEngine"
-                          ]
-                        },
-                        {
-                          "group": "document_utils",
-                          "pages": [
-                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/overview",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/download_url",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/is_url",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/list_files",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/preprocess_path"
+                            "docs/api-reference/autogen/agents/experimental/document_agent/url_utils/overview",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/url_utils/InputFormat",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/url_utils/URLAnalyzer"
                           ]
                         }
                       ]
@@ -1391,7 +1442,8 @@
                 "docs/api-reference/autogen/graph_utils/overview",
                 "docs/api-reference/autogen/graph_utils/check_graph_validity",
                 "docs/api-reference/autogen/graph_utils/has_self_loops",
-                "docs/api-reference/autogen/graph_utils/invert_disallowed_to_allowed"
+                "docs/api-reference/autogen/graph_utils/invert_disallowed_to_allowed",
+                "docs/api-reference/autogen/graph_utils/visualize_speaker_transitions_dict"
               ]
             },
             {
@@ -1401,6 +1453,7 @@
                 "docs/api-reference/autogen/import_utils/optional_import_block",
                 "docs/api-reference/autogen/import_utils/patch_object",
                 "docs/api-reference/autogen/import_utils/require_optional_import",
+                "docs/api-reference/autogen/import_utils/run_for_optional_imports",
                 "docs/api-reference/autogen/import_utils/skip_on_missing_imports"
               ]
             },
@@ -1411,7 +1464,9 @@
                 "docs/api-reference/autogen/interop/CrewAIInteroperability",
                 "docs/api-reference/autogen/interop/Interoperability",
                 "docs/api-reference/autogen/interop/Interoperable",
+                "docs/api-reference/autogen/interop/LangChainChatModelFactory",
                 "docs/api-reference/autogen/interop/LangChainInteroperability",
+                "docs/api-reference/autogen/interop/LiteLLmConfigFactory",
                 "docs/api-reference/autogen/interop/PydanticAIInteroperability",
                 "docs/api-reference/autogen/interop/register_interoperable_class",
                 {
@@ -1540,7 +1595,8 @@
                   "group": "anthropic",
                   "pages": [
                     "docs/api-reference/autogen/oai/anthropic/overview",
-                    "docs/api-reference/autogen/oai/anthropic/AnthropicClient"
+                    "docs/api-reference/autogen/oai/anthropic/AnthropicClient",
+                    "docs/api-reference/autogen/oai/anthropic/oai_messages_to_anthropic_messages"
                   ]
                 },
                 {
@@ -1592,7 +1648,9 @@
                     "docs/api-reference/autogen/oai/cohere/CohereClient",
                     "docs/api-reference/autogen/oai/cohere/CohereError",
                     "docs/api-reference/autogen/oai/cohere/CohereRateLimitError",
-                    "docs/api-reference/autogen/oai/cohere/calculate_cohere_cost"
+                    "docs/api-reference/autogen/oai/cohere/calculate_cohere_cost",
+                    "docs/api-reference/autogen/oai/cohere/clean_return_response_format",
+                    "docs/api-reference/autogen/oai/cohere/extract_to_cohere_tool_results"
                   ]
                 },
                 {
@@ -1600,7 +1658,8 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/gemini/overview",
                     "docs/api-reference/autogen/oai/gemini/GeminiClient",
-                    "docs/api-reference/autogen/oai/gemini/calculate_gemini_cost"
+                    "docs/api-reference/autogen/oai/gemini/calculate_gemini_cost",
+                    "docs/api-reference/autogen/oai/gemini/get_image_data"
                   ]
                 },
                 {
@@ -1617,7 +1676,68 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/mistral/overview",
                     "docs/api-reference/autogen/oai/mistral/MistralAIClient",
-                    "docs/api-reference/autogen/oai/mistral/calculate_mistral_cost"
+                    "docs/api-reference/autogen/oai/mistral/calculate_mistral_cost",
+                    "docs/api-reference/autogen/oai/mistral/tool_def_to_mistral"
+                  ]
+                },
+                {
+                  "group": "oai_models",
+                  "pages": [
+                    "docs/api-reference/autogen/oai/oai_models/overview",
+                    "docs/api-reference/autogen/oai/oai_models/ChatCompletion",
+                    "docs/api-reference/autogen/oai/oai_models/ChatCompletionMessage",
+                    "docs/api-reference/autogen/oai/oai_models/ChatCompletionMessageToolCall",
+                    "docs/api-reference/autogen/oai/oai_models/Choice",
+                    "docs/api-reference/autogen/oai/oai_models/CompletionUsage",
+                    {
+                      "group": "chat_completion",
+                      "pages": [
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion/overview",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion/ChatCompletion",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion/Choice",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion/ChoiceLogprobs"
+                      ]
+                    },
+                    {
+                      "group": "chat_completion_audio",
+                      "pages": [
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_audio/overview",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_audio/ChatCompletionAudio"
+                      ]
+                    },
+                    {
+                      "group": "chat_completion_message",
+                      "pages": [
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_message/overview",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_message/ChatCompletionMessage",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_message/FunctionCall"
+                      ]
+                    },
+                    {
+                      "group": "chat_completion_message_tool_call",
+                      "pages": [
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_message_tool_call/overview",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_message_tool_call/ChatCompletionMessageToolCall",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_message_tool_call/Function"
+                      ]
+                    },
+                    {
+                      "group": "chat_completion_token_logprob",
+                      "pages": [
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_token_logprob/overview",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_token_logprob/ChatCompletionTokenLogprob",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_token_logprob/TopLogprob"
+                      ]
+                    },
+                    {
+                      "group": "completion_usage",
+                      "pages": [
+                        "docs/api-reference/autogen/oai/oai_models/completion_usage/overview",
+                        "docs/api-reference/autogen/oai/oai_models/completion_usage/CompletionTokensDetails",
+                        "docs/api-reference/autogen/oai/oai_models/completion_usage/CompletionUsage",
+                        "docs/api-reference/autogen/oai/oai_models/completion_usage/PromptTokensDetails"
+                      ]
+                    }
                   ]
                 },
                 {
@@ -1625,7 +1745,8 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/ollama/overview",
                     "docs/api-reference/autogen/oai/ollama/OllamaClient",
-                    "docs/api-reference/autogen/oai/ollama/is_valid_tool_call_item"
+                    "docs/api-reference/autogen/oai/ollama/is_valid_tool_call_item",
+                    "docs/api-reference/autogen/oai/ollama/response_to_tool_call"
                   ]
                 },
                 {
@@ -1657,9 +1778,13 @@
               "group": "retrieve_utils",
               "pages": [
                 "docs/api-reference/autogen/retrieve_utils/overview",
+                "docs/api-reference/autogen/retrieve_utils/create_vector_db_from_dir",
+                "docs/api-reference/autogen/retrieve_utils/extract_text_from_pdf",
                 "docs/api-reference/autogen/retrieve_utils/get_file_from_url",
                 "docs/api-reference/autogen/retrieve_utils/get_files_from_dir",
                 "docs/api-reference/autogen/retrieve_utils/is_url",
+                "docs/api-reference/autogen/retrieve_utils/parse_html_to_markdown",
+                "docs/api-reference/autogen/retrieve_utils/query_vector_db",
                 "docs/api-reference/autogen/retrieve_utils/split_files_to_chunks",
                 "docs/api-reference/autogen/retrieve_utils/split_text_to_chunks"
               ]
@@ -1687,7 +1812,6 @@
                 "docs/api-reference/autogen/token_count_utils/count_token",
                 "docs/api-reference/autogen/token_count_utils/get_max_token_limit",
                 "docs/api-reference/autogen/token_count_utils/num_tokens_from_functions",
-                "docs/api-reference/autogen/token_count_utils/num_tokens_from_gpt_image",
                 "docs/api-reference/autogen/token_count_utils/percentile_used",
                 "docs/api-reference/autogen/token_count_utils/token_left"
               ]
@@ -1704,6 +1828,13 @@
                 "docs/api-reference/autogen/tools/load_basemodels_if_needed",
                 "docs/api-reference/autogen/tools/serialize_to_str",
                 "docs/api-reference/autogen/tools/tool",
+                {
+                  "group": "contrib",
+                  "pages": [
+                    "docs/api-reference/autogen/tools/contrib/overview",
+                    "docs/api-reference/autogen/tools/contrib/TimeTool"
+                  ]
+                },
                 {
                   "group": "dependency_injection",
                   "pages": [
@@ -1731,14 +1862,7 @@
                       "group": "browser_use",
                       "pages": [
                         "docs/api-reference/autogen/tools/experimental/browser_use/overview",
-                        "docs/api-reference/autogen/tools/experimental/browser_use/BrowserUseResult",
-                        {
-                          "group": "langchain_factory",
-                          "pages": [
-                            "docs/api-reference/autogen/tools/experimental/browser_use/langchain_factory/overview",
-                            "docs/api-reference/autogen/tools/experimental/browser_use/langchain_factory/LangchainFactory"
-                          ]
-                        }
+                        "docs/api-reference/autogen/tools/experimental/browser_use/BrowserUseResult"
                       ]
                     }
                   ]

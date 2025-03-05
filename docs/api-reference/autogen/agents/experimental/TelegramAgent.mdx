@@ -9,8 +9,9 @@ title: autogen.agents.experimental.TelegramAgent
 
 ```python
 TelegramAgent(
-    system_message: str | list | None = None,
-    *args,
+    name: str,
+    system_message: str | None = None,
+    *,
     api_id: str,
     api_hash: str,
     chat_id: str,
@@ -24,13 +25,21 @@ TelegramAgent(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `system_message` | **Type:** str \| list \| None<br/><br/>**Default:** None |
-| `*args` |  |
+| `name` | **Type:** str |
+| `system_message` | **Type:** str \| None<br/><br/>**Default:** None |
 | `api_id` | **Type:** str |
 | `api_hash` | **Type:** str |
 | `chat_id` | **Type:** str |
 | `has_writing_instructions` | **Type:** bool<br/><br/>**Default:** True |
 | `**kwargs` | **Type:** Any |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### DEFAULT_SYSTEM_MESSAGE
+<br />
+
+    <br />
 
 ### Instance Attributes
 

@@ -18,7 +18,15 @@ IOWebsockets(websocket: ServerConnection)
 |--|--|
 | `websocket` | **Type:** autogen.io.websockets.ServerConnection |
 
-### Static Methods
+### Instance Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### websocket
+<br />
+
+    The URI of the websocket server.
+
+### Instance Methods
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### get_default
@@ -51,75 +59,6 @@ get_global_default() -> IOStream
 | [IOStream](/docs/api-reference/autogen/io/IOStream) | IOStream: The default input/output stream. |
 
 <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
-#### run_server_in_thread
-
-```python
-run_server_in_thread(
-    *,
-    host: str = '127.0.0.1',
-    port: int = 8765,
-    on_connect: Callable[[ForwardRef('IOWebsockets')], None],
-    ssl_context: SSLContext | None = None,
-    **kwargs: Any
-) -> Iterator[str]
-```
-
-    Factory function to create a websocket input/output stream.<br/>
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `host` | The host to bind the server to.<br/><br/>Defaults to "127.0.0.1".<br/><br/>**Type:** str<br/><br/>**Default:** '127.0.0.1' |
-| `port` | The port to bind the server to.<br/><br/>Defaults to 8765.<br/><br/>**Type:** int<br/><br/>**Default:** 8765 |
-| `on_connect` | The function to be executed on client connection.<br/><br/>Typically creates agents and initiate chat.<br/><br/>**Type:** Callable[[ForwardRef('[IOWebsockets](/docs/api-reference/autogen/io/IOWebsockets)')], None] |
-| `ssl_context` | The SSL context to use for secure connections.<br/><br/>Defaults to None.<br/><br/>**Type:** ssl.SSLContext \| None<br/><br/>**Default:** None |
-| `**kwargs` | **Type:** Any |
-
-<br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
-#### set_default
-
-```python
-set_default(stream: ForwardRef('IOStream') | None) -> Iterator[None]
-```
-
-    Set the default input/output stream.<br/>
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `stream` | The input/output stream to set as the default.<br/><br/>**Type:** ForwardRef('IOStream') \| None |
-
-<br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
-#### set_global_default
-
-```python
-set_global_default(stream: IOStream) -> None
-```
-
-    Set the default input/output stream.<br/>
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `stream` | The input/output stream to set as the default.<br/><br/>**Type:** IOStream |
-
-<br />
-
-### Instance Attributes
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### websocket
-<br />
-
-    The URI of the websocket server.
-
-### Instance Methods
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### input
@@ -174,6 +113,33 @@ print(
 <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### run_server_in_thread
+
+```python
+run_server_in_thread(
+    *,
+    host: str = '127.0.0.1',
+    port: int = 8765,
+    on_connect: Callable[[ForwardRef('IOWebsockets')], None],
+    ssl_context: SSLContext | None = None,
+    **kwargs: Any
+) -> Iterator[str]
+```
+
+    Factory function to create a websocket input/output stream.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `host` | The host to bind the server to.<br/><br/>Defaults to "127.0.0.1".<br/><br/>**Type:** str<br/><br/>**Default:** '127.0.0.1' |
+| `port` | The port to bind the server to.<br/><br/>Defaults to 8765.<br/><br/>**Type:** int<br/><br/>**Default:** 8765 |
+| `on_connect` | The function to be executed on client connection.<br/><br/>Typically creates agents and initiate chat.<br/><br/>**Type:** Callable[[ForwardRef('[IOWebsockets](/docs/api-reference/autogen/io/IOWebsockets)')], None] |
+| `ssl_context` | The SSL context to use for secure connections.<br/><br/>Defaults to None.<br/><br/>**Type:** ssl.SSLContext \| None<br/><br/>**Default:** None |
+| `**kwargs` | **Type:** Any |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### send
 
 ```python
@@ -186,5 +152,37 @@ send(self, message: BaseMessage) -> None
 | Name | Description |
 |--|--|
 | `message` | The message to send.<br/><br/>**Type:** [BaseMessage](/docs/api-reference/autogen/messages/BaseMessage) |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### set_default
+
+```python
+set_default(stream: ForwardRef('IOStream') | None) -> Iterator[None]
+```
+
+    Set the default input/output stream.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `stream` | The input/output stream to set as the default.<br/><br/>**Type:** ForwardRef('[IOStream](/docs/api-reference/autogen/io/IOStream)') \| None |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### set_global_default
+
+```python
+set_global_default(stream: IOStream) -> None
+```
+
+    Set the default input/output stream.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `stream` | The input/output stream to set as the default.<br/><br/>**Type:** [IOStream](/docs/api-reference/autogen/io/IOStream) |
 
 <br />

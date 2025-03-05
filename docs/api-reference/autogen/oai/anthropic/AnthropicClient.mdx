@@ -8,7 +8,7 @@ title: autogen.oai.anthropic.AnthropicClient
 </h2>
 
 ```python
-AnthropicClient(**kwargs)
+AnthropicClient(**kwargs: Any)
 ```
 
     Initialize the Anthropic API client.<br/>
@@ -16,51 +16,7 @@ AnthropicClient(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
-
-### Class Attributes
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### convert_tools_to_functions
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### cost
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### create
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### get_usage
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### load_config
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### message_retrieval
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### openai_func_to_anthropic
-<br />
-
-    <br />
+| `**kwargs` | **Type:** Any |
 
 ### Instance Attributes
 
@@ -111,3 +67,124 @@ AnthropicClient(**kwargs)
 <br />
 
     <br />
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### convert_tools_to_functions
+
+```python
+convert_tools_to_functions(tools: list) -> list
+```
+
+    Convert tool definitions into Anthropic-compatible functions,
+    updating nested $ref paths in property schemas.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `tools` | List of tool definitions.<br/><br/>**Type:** list |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| list | list: List of functions with updated $ref paths. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### cost
+
+```python
+cost(self, response) -> float
+```
+
+    Calculate the cost of the completion using the Anthropic pricing.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `response` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### create
+
+```python
+create(self, params: dict[str, Any]) -> ChatCompletionExtended
+```
+
+    Creates a completion using the Anthropic API.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `params` | **Type:** dict[str, Any] |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_usage
+
+```python
+get_usage(response: ChatCompletion) -> dict
+```
+
+    Get the usage of tokens and their cost information.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `response` | **Type:** ChatCompletion |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### load_config
+
+```python
+load_config(self, params: dict[str, Any]) -> 
+```
+
+    Load the configuration for the Anthropic API client.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `params` | **Type:** dict[str, Any] |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### message_retrieval
+
+```python
+message_retrieval(self, response) -> list
+```
+
+    Retrieve and return a list of strings or a list of Choice.Message from the response.<br/>NOTE: if a list of Choice.Message is returned, it currently needs to contain the fields of OpenAI's ChatCompletion Message object,
+    since that is expected for function or tool calling in the rest of the codebase at the moment, unless a custom agent is being used.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `response` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### openai_func_to_anthropic
+
+```python
+openai_func_to_anthropic(openai_func: dict) -> dict
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `openai_func` | **Type:** dict |
+
+<br />
