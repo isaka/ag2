@@ -13,64 +13,64 @@ tags: [LLM, GPT, research]
 </div>
 
 <div class="blog-authors">
-  <p class="authors">Authors:</p>
-  <CardGroup cols={2}>
-    <Card href="https://github.com/Hk669">
-        <div class="col card">
-          <div class="img-placeholder">
-            <img noZoom src="https://github.com/Hk669.png" />
-          </div>
-          <div>
-            <p class="name">Hrushikesh Dokala</p>
-            <p>CS Undergraduate Based in India</p>
-          </div>
-        </div>
-    </Card>
-    <Card href="https://github.com/BabyCNM">
-        <div class="col card">
-          <div class="img-placeholder">
-            <img noZoom src="https://github.com/BabyCNM.png" />
-          </div>
-          <div>
-            <p class="name">BabyCNM</p>
-            <p>AG2 Contributor</p>
-          </div>
-        </div>
-    </Card>
-    <Card href="https://github.com/skzhang1">
-        <div class="col card">
-          <div class="img-placeholder">
-            <img noZoom src="https://github.com/skzhang1.png" />
-          </div>
-          <div>
-            <p class="name">Shaokun Zhang</p>
-            <p>PhD student at the Pennsylvania State University</p>
-          </div>
-        </div>
-    </Card>
-    <Card href="https://www.linkedin.com/in/chi-wang-autogen/">
-        <div class="col card">
-          <div class="img-placeholder">
-            <img noZoom src="https://github.com/sonichi.png" />
-          </div>
-          <div>
-            <p class="name">Chi Wang</p>
-            <p>Founder of AutoGen (now AG2) & FLAML</p>
-          </div>
-        </div>
-    </Card>
-    <Card href="https://qingyun-wu.github.io/">
-        <div class="col card">
-          <div class="img-placeholder">
-            <img noZoom src="https://github.com/qingyun-wu.png" />
-          </div>
-          <div>
-            <p class="name">Qingyun Wu</p>
-            <p>Co-Founder of AutoGen/AG2 & FLAML, Assistant Professor at Penn State University</p>
-          </div>
-        </div>
-    </Card>
-  </CardGroup>
+<p class="authors">Authors:</p>
+<CardGroup cols={2}>
+<Card href="https://github.com/Hk669">
+    <div class="col card">
+      <div class="img-placeholder">
+        <img noZoom src="https://github.com/Hk669.png" />
+      </div>
+      <div>
+        <p class="name">Hrushikesh Dokala</p>
+        <p>CS Undergraduate Based in India</p>
+      </div>
+    </div>
+</Card>
+<Card href="https://github.com/BabyCNM">
+    <div class="col card">
+      <div class="img-placeholder">
+        <img noZoom src="https://github.com/BabyCNM.png" />
+      </div>
+      <div>
+        <p class="name">BabyCNM</p>
+        <p>AG2 Contributor</p>
+      </div>
+    </div>
+</Card>
+<Card href="https://github.com/skzhang1">
+    <div class="col card">
+      <div class="img-placeholder">
+        <img noZoom src="https://github.com/skzhang1.png" />
+      </div>
+      <div>
+        <p class="name">Shaokun Zhang</p>
+        <p>PhD student at the Pennsylvania State University</p>
+      </div>
+    </div>
+</Card>
+<Card href="https://www.linkedin.com/in/chi-wang-autogen/">
+    <div class="col card">
+      <div class="img-placeholder">
+        <img noZoom src="https://github.com/sonichi.png" />
+      </div>
+      <div>
+        <p class="name">Chi Wang</p>
+        <p>Founder of AutoGen (now AG2) & FLAML</p>
+      </div>
+    </div>
+</Card>
+<Card href="https://qingyun-wu.github.io/">
+    <div class="col card">
+      <div class="img-placeholder">
+        <img noZoom src="https://github.com/qingyun-wu.png" />
+      </div>
+      <div>
+        <p class="name">Qingyun Wu</p>
+        <p>Co-Founder of AutoGen/AG2 & FLAML, Assistant Professor at Penn State University</p>
+      </div>
+    </div>
+</Card>
+</CardGroup>
 </div>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sS8Q5yMuEhs?si=MfWmzflK94S94FEx" title="ReasoningAgent" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -121,16 +121,17 @@ When `beam_size=1`, ReasoningAgent behaves similarly to Chain-of-Thought (CoT) o
 
 For example:
 ```python
+llm_config = LLMConfig.from_json(path="OAI_CONFIG_LIST")
 # Create a reasoning agent with beam size 1 (O1-style)
-reason_agent = ReasoningAgent(
-    name="reason_agent",
-    llm_config={"config_list": config_list},
-    verbose=False,
-    reason_config={
-        "beam_size": 1,  # Using beam size 1 for O1-style reasoning
-        "max_depth": 3
-    }
-)
+with llm_config:
+    reason_agent = ReasoningAgent(
+        name="reason_agent",
+        verbose=False,
+        reason_config={
+            "beam_size": 1,  # Using beam size 1 for O1-style reasoning
+            "max_depth": 3
+        }
+    )
 ```
 
 This configuration means:
@@ -152,18 +153,18 @@ from autogen.agents.experimental import (
 )
 
 # Configure the model
-config_list = [{"api_type": "openai", "model": "gpt-4", "api_key": os.environ.get("OPENAI_API_KEY")}]
+llm_config = LLMConfig(api_type="openai", model="gpt-4", api_key=os.environ.get("OPENAI_API_KEY"))
 
 # Create a reasoning agent with beam search
-reasoning_agent = ReasoningAgent(
-    name="reason_agent",
-    llm_config={"config_list": config_list},
-    verbose=False,
-    reason_config={
-        "beam_size": 1,  # Using beam size 1 for O1-style reasoning
-        "max_depth": 3
-    }
-)
+with llm_config:
+    reasoning_agent = ReasoningAgent(
+        name="reason_agent",
+        verbose=False,
+        reason_config={
+            "beam_size": 1,  # Using beam size 1 for O1-style reasoning
+            "max_depth": 3
+        }
+    )
 
 # Create a user proxy agent
 user_proxy = UserProxyAgent(
@@ -212,15 +213,15 @@ def last_meaningful_msg(sender, recipient, summary_args):
             warnings.warn(f"Cannot extract summary using last_msg: {e}. Using an empty str as summary.", UserWarning)
     return summary
 
-reason_agent = ReasoningAgent(
-    name="reason_agent",
-    llm_config={"config_list": config_list},
-    verbose=False,
-    reason_config={
-        "beam_size": 3,
-        "max_depth": 3
-    }
-)
+with llm_config:
+    reason_agent = ReasoningAgent(
+        name="reason_agent",
+        verbose=False,
+        reason_config={
+            "beam_size": 3,
+            "max_depth": 3
+        }
+    )
 
 # Example complex problem
 task = "Design a mixed integer linear program for a coffee roasting supply chain"

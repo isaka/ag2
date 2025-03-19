@@ -13,31 +13,31 @@ tags: [LLM, GPT, evaluation, task utility]
 </div>
 
 <div class="blog-authors">
-  <p class="authors">Authors:</p>
-  <CardGroup cols={2}>
-    <Card href="https://github.com/jluey1">
-        <div class="col card">
-          <div class="img-placeholder">
-            <img noZoom src="https://github.com/jluey1.png" />
-          </div>
-          <div>
-            <p class="name">James Woffinden-Luey</p>
-            <p>Senior Research Engineer at Microsoft Research</p>
-          </div>
-        </div>
-    </Card>
-    <Card href="https://github.com/julianakiseleva/">
-        <div class="col card">
-          <div class="img-placeholder">
-            <img noZoom src="https://avatars.githubusercontent.com/u/5908392?v=4" />
-          </div>
-          <div>
-            <p class="name">Julia Kiseleva</p>
-            <p>Senior Researcher at Microsoft Research</p>
-          </div>
-        </div>
-    </Card>
-  </CardGroup>
+<p class="authors">Authors:</p>
+<CardGroup cols={2}>
+<Card href="https://github.com/jluey1">
+    <div class="col card">
+      <div class="img-placeholder">
+        <img noZoom src="https://github.com/jluey1.png" />
+      </div>
+      <div>
+        <p class="name">James Woffinden-Luey</p>
+        <p>Senior Research Engineer at Microsoft Research</p>
+      </div>
+    </div>
+</Card>
+<Card href="https://github.com/julianakiseleva/">
+    <div class="col card">
+      <div class="img-placeholder">
+        <img noZoom src="https://avatars.githubusercontent.com/u/5908392?v=4" />
+      </div>
+      <div>
+        <p class="name">Julia Kiseleva</p>
+        <p>Senior Researcher at Microsoft Research</p>
+      </div>
+    </div>
+</Card>
+</CardGroup>
 </div>
 
 ![Fig.1: An AgentEval framework with verification step](img/agenteval_ov_v3.webp)
@@ -118,7 +118,7 @@ Parameters:
 
 Example code:
 ```
-config_list = autogen.config_list_from_json("OAI_CONFIG_LIST")
+llm_config = autogen.LLMConfig.from_json(path="OAI_CONFIG_LIST")
 task = Task(
     **{
         "name": "Math problem solving",
@@ -128,7 +128,7 @@ task = Task(
     }
 )
 
-criteria = generate_criteria(task=task, llm_config={"config_list": config_list})
+criteria = generate_criteria(task=task, llm_config=llm_config)
 ```
 
 Note: Only one sample execution chain (success/failure) is required for the task object but AgentEval will perform better with an example for each case.
@@ -192,7 +192,7 @@ test_case="""[
   ]"""
 
 quantifier_output = quantify_criteria(
-    llm_config={"config_list": config_list},
+    llm_config=llm_config,
     criteria=criteria,
     task=task,
     test_case=test_case,

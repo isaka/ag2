@@ -102,7 +102,6 @@ sequenceDiagram
 In this code example we use OpenAI's GPT-4o mini with structured outputs.
 </Tip>
 
-
 ```python
 #!/usr/bin/env python3
 # Copyright (c) 2023 - 2025, AG2ai, Inc.
@@ -123,7 +122,8 @@ from autogen import (
     AfterWorkOption,
     initiate_swarm_chat,
     ContextExpression,
-    SwarmResult
+    SwarmResult,
+    LLMConfig,
 )
 
 # Define structured output models
@@ -179,7 +179,6 @@ def answer_question_common(response: ConsideredResponse, agent_level: str, conte
     else:
         return SwarmResult(agent="triage_agent", context_variables=context_variables, values=f"Successfully answered with confidence ({response.confidence}/10):\n{response.answer}")
 
-
 def answer_question_basic(response: ConsideredResponse, context_variables: dict[str, Any]) -> SwarmResult:
     """Always call this tool with your answer."""
     return answer_question_common(response, "basic", context_variables)
@@ -205,11 +204,11 @@ def main():
         You should never answer the question yourself.
         """,
         functions=[new_question_asked],
-        llm_config={
-            "model": "gpt-4o-mini",
-            "temperature": 0,
-            "cache_seed": None,
-        }
+        llm_config=LLMConfig(
+            model="gpt-4o-mini",
+            temperature=0,
+            cache_seed=None,
+        )
     )
 
     # Create agents of increasing capability/cost
@@ -235,12 +234,12 @@ def main():
         Always call the answer_question_basic tool when answering.
         """,
         functions=[answer_question_basic],
-        llm_config={
-            "api_type": "openai",
-            "model": "gpt-4o-mini",
-            "temperature": 0,
-            "cache_seed": None,
-        }
+        llm_config=LLMConfig(
+            api_type="openai",
+            model="gpt-4o-mini",
+            temperature=0,
+            cache_seed=None,
+        )
     )
 
     intermediate_agent = ConversableAgent(
@@ -263,12 +262,12 @@ def main():
         For more specialized or complex questions where you're less certain, rate accordingly lower.
         """,
         functions=[answer_question_intermediate],
-        llm_config={
-            "api_type": "openai",
-            "model": "gpt-4o",
-            "temperature": 0,
-            "seed": 42,
-        }
+        llm_config=LLMConfig(
+            api_type="openai",
+            model="gpt-4o",
+            temperature=0,
+            seed=42,
+        )
     )
 
     advanced_agent = ConversableAgent(
@@ -291,11 +290,11 @@ def main():
         For extremely specialized or cutting-edge questions where you're less certain, rate accordingly lower.
         """,
         functions=[answer_question_advanced],
-        llm_config={
-            "api_type": "anthropic",
-            "model": "claude-3-7-sonnet-20250219",
-            "seed": 42,
-        }
+        llm_config=LLMConfig(
+            api_type="anthropic",
+            model="claude-3-7-sonnet-20250219",
+            seed=42,
+        )
     )
 
     # Create a user proxy agent
@@ -391,7 +390,6 @@ def main():
         if "name" in message and message["name"] != "_Swarm_Tool_Executor":
             print(f"{message['name']}")
 
-
 if __name__ == "__main__":
     main()
 ```
@@ -407,7 +405,6 @@ Develop a mathematical model for optimizing the tradeoff between exploration and
 
 Next speaker: triage_agent
 
-
 >>>>>>>> USING AUTO REPLY...
 triage_agent (to chat_manager):
 
@@ -419,7 +416,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION new_question_asked...
 Call ID: call_UELe6AXv5mgBKyZW9CQxvwqq
@@ -437,7 +433,6 @@ Develop a mathematical model for optimizing the tradeoff between exploration and
 
 Next speaker: basic_agent
 
-
 >>>>>>>> USING AUTO REPLY...
 basic_agent (to chat_manager):
 
@@ -449,7 +444,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION answer_question_basic...
 Call ID: call_hEcCWFqnOhFqdmCeURL6cd6E
@@ -465,7 +459,6 @@ Requires specialized knowledge in reinforcement learning and mathematical modeli
 
 Next speaker: intermediate_agent
 
-
 >>>>>>>> USING AUTO REPLY...
 intermediate_agent (to chat_manager):
 
@@ -477,7 +470,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION answer_question_intermediate...
 Call ID: call_Od6X0eFgpwElfylocyHbyHRc
@@ -492,7 +484,6 @@ The question requires specialized knowledge in reinforcement learning and mathem
 --------------------------------------------------------------------------------
 
 Next speaker: advanced_agent
-
 
 >>>>>>>> USING AUTO REPLY...
 [autogen.oai.client: 03-07 23:17:07] {652} WARNING - Model o3-mini-2025-01-31 is not found. The cost will be 0. In your config_list, add field {"price" : [prompt_price_per_1k, completion_token_price_per_1k]} for customized pricing.
@@ -520,7 +511,6 @@ Thank you, please answer: What is 100 divided by 5?
 
 Next speaker: advanced_agent
 
-
 >>>>>>>> USING AUTO REPLY...
 [autogen.oai.client: 03-07 23:17:31] {652} WARNING - Model o3-mini-2025-01-31 is not found. The cost will be 0. In your config_list, add field {"price" : [prompt_price_per_1k, completion_token_price_per_1k]} for customized pricing.
 advanced_agent (to chat_manager):
@@ -533,7 +523,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION answer_question_advanced...
 Call ID: call_vVxo4qMviDeMcwVpg4nPF0wA
@@ -548,7 +537,6 @@ Successfully answered with confidence (10/10):
 --------------------------------------------------------------------------------
 
 Next speaker: triage_agent
-
 
 >>>>>>>> USING AUTO REPLY...
 triage_agent (to chat_manager):
@@ -577,7 +565,6 @@ Develop a mathematical model for optimizing the tradeoff between exploration and
 
 Next speaker: triage_agent
 
-
 >>>>>>>> USING AUTO REPLY...
 triage_agent (to chat_manager):
 
@@ -589,7 +576,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION new_question_asked...
 Call ID: call_J07ECbwyKq4QM9gWZBU2smgz
@@ -607,7 +593,6 @@ Develop a mathematical model for optimizing the tradeoff between exploration and
 
 Next speaker: basic_agent
 
-
 >>>>>>>> USING AUTO REPLY...
 basic_agent (to chat_manager):
 
@@ -619,7 +604,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION answer_question_basic...
 Call ID: call_sQEGe8LvN4cd35lvbMkjo6pe
@@ -635,7 +619,6 @@ Complexity of the topic and need for specialized knowledge.
 
 Next speaker: intermediate_agent
 
-
 >>>>>>>> USING AUTO REPLY...
 intermediate_agent (to chat_manager):
 
@@ -647,7 +630,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION answer_question_intermediate...
 Call ID: call_8IuYMZlJXePEqlQr3LosO1TZ
@@ -663,12 +645,10 @@ The complexity of integrating a hidden Markov model with UCB and comparing it to
 
 Next speaker: advanced_agent
 
-
 >>>>>>>> USING AUTO REPLY...
 /app/ag2/autogen/oai/anthropic.py:606: UserWarning: Cost calculation not available for model claude-3-7-sonnet-20250219
   warnings.warn(f"Cost calculation not available for model {model}", UserWarning)
 advanced_agent (to chat_manager):
-
 
 ***** Suggested tool call (toolu_01KCbPuXibD119vQLraX6TaH): answer_question_advanced *****
 Arguments:
@@ -678,7 +658,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION answer_question_advanced...
 Call ID: toolu_01KCbPuXibD119vQLraX6TaH
@@ -764,7 +743,6 @@ In conclusion, the HMM-UCB algorithm provides a principled approach to handling 
 --------------------------------------------------------------------------------
 
 Next speaker: triage_agent
-
 
 >>>>>>>> USING AUTO REPLY...
 triage_agent (to chat_manager):
@@ -859,7 +837,6 @@ Thank you, please answer: What is 100 divided by 5?
 
 Next speaker: triage_agent
 
-
 >>>>>>>> USING AUTO REPLY...
 triage_agent (to chat_manager):
 
@@ -871,7 +848,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION new_question_asked...
 Call ID: call_gkmKIkpX9CyKgKwN4N1mWDqr
@@ -889,7 +865,6 @@ What is 100 divided by 5?
 
 Next speaker: basic_agent
 
-
 >>>>>>>> USING AUTO REPLY...
 basic_agent (to chat_manager):
 
@@ -901,7 +876,6 @@ Arguments:
 --------------------------------------------------------------------------------
 
 Next speaker: _Swarm_Tool_Executor
-
 
 >>>>>>>> EXECUTING FUNCTION answer_question_basic...
 Call ID: call_dEWHzrdIurOVlBFOu6vOwxAB
@@ -916,7 +890,6 @@ Successfully answered with confidence (10/10):
 --------------------------------------------------------------------------------
 
 Next speaker: triage_agent
-
 
 >>>>>>>> USING AUTO REPLY...
 triage_agent (to chat_manager):
@@ -937,7 +910,6 @@ The question has been successfully answered. Here is the response:
 
 100 divided by 5 is 20.
 
-
 ===== FINAL CONTEXT VARIABLES =====
 
 {
@@ -949,7 +921,6 @@ The question has been successfully answered. Here is the response:
   "last_escalating_agent": "",
   "current_question": "What is 100 divided by 5?"
 }
-
 
 ===== SPEAKER ORDER =====
 

@@ -13,64 +13,64 @@ tags: [LLM, GPT, AutoBuild]
 </div>
 
 <div class="blog-authors">
-  <p class="authors">Authors:</p>
-  <CardGroup cols={2}>
-    <Card href="https://github.com/LeoLjl">
-        <div class="col card">
-          <div class="img-placeholder">
-            <img noZoom src="https://github.com/leoljl.png" />
-          </div>
-          <div>
-            <p class="name">Jiale Liu</p>
-            <p>PhD student at Pennsylvania State University</p>
-          </div>
-        </div>
-    </Card>
-    <Card href="https://linxins.net">
-        <div class="col card">
-          <div class="img-placeholder">
-            <img noZoom src="https://github.com/LinxinS97.png" />
-          </div>
-          <div>
-            <p class="name">Linxin Song</p>
-            <p>PhD student at the University of Southern California</p>
-          </div>
-        </div>
-    </Card>
-    <Card href="https://jieyuz2.github.io/">
-        <div class="col card">
-          <div class="img-placeholder">
-            <img noZoom src="https://github.com/jieyuz2.png" />
-          </div>
-          <div>
-            <p class="name">Jieyu Zhang</p>
-            <p>PhD student at University of Washington</p>
-          </div>
-        </div>
-    </Card>
-    <Card href="https://github.com/skzhang1">
-        <div class="col card">
-          <div class="img-placeholder">
-            <img noZoom src="https://github.com/skzhang1.png" />
-          </div>
-          <div>
-            <p class="name">Shaokun Zhang</p>
-            <p>PhD student at the Pennsylvania State University</p>
-          </div>
-        </div>
-    </Card>
-    <Card href="https://qingyun-wu.github.io/">
-        <div class="col card">
-          <div class="img-placeholder">
-            <img noZoom src="https://github.com/qingyun-wu.png" />
-          </div>
-          <div>
-            <p class="name">Qingyun Wu</p>
-            <p>Co-Founder of AutoGen/AG2 & FLAML, Assistant Professor at Penn State University</p>
-          </div>
-        </div>
-    </Card>
-  </CardGroup>
+<p class="authors">Authors:</p>
+<CardGroup cols={2}>
+<Card href="https://github.com/LeoLjl">
+    <div class="col card">
+      <div class="img-placeholder">
+        <img noZoom src="https://github.com/leoljl.png" />
+      </div>
+      <div>
+        <p class="name">Jiale Liu</p>
+        <p>PhD student at Pennsylvania State University</p>
+      </div>
+    </div>
+</Card>
+<Card href="https://linxins.net">
+    <div class="col card">
+      <div class="img-placeholder">
+        <img noZoom src="https://github.com/LinxinS97.png" />
+      </div>
+      <div>
+        <p class="name">Linxin Song</p>
+        <p>PhD student at the University of Southern California</p>
+      </div>
+    </div>
+</Card>
+<Card href="https://jieyuz2.github.io/">
+    <div class="col card">
+      <div class="img-placeholder">
+        <img noZoom src="https://github.com/jieyuz2.png" />
+      </div>
+      <div>
+        <p class="name">Jieyu Zhang</p>
+        <p>PhD student at University of Washington</p>
+      </div>
+    </div>
+</Card>
+<Card href="https://github.com/skzhang1">
+    <div class="col card">
+      <div class="img-placeholder">
+        <img noZoom src="https://github.com/skzhang1.png" />
+      </div>
+      <div>
+        <p class="name">Shaokun Zhang</p>
+        <p>PhD student at the Pennsylvania State University</p>
+      </div>
+    </div>
+</Card>
+<Card href="https://qingyun-wu.github.io/">
+    <div class="col card">
+      <div class="img-placeholder">
+        <img noZoom src="https://github.com/qingyun-wu.png" />
+      </div>
+      <div>
+        <p class="name">Qingyun Wu</p>
+        <p>Co-Founder of AutoGen/AG2 & FLAML, Assistant Professor at Penn State University</p>
+      </div>
+    </div>
+</Card>
+</CardGroup>
 </div>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/laGZmQUolBY?si=oU9FSfWPGCTbJ1Y_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -118,19 +118,16 @@ Without them, CaptainAgent will automatically generate new agents.
 
 ```python
 from autogen.agentchat.contrib.captainagent import CaptainAgent
-from autogen import UserProxyAgent, config_list_from_json
+from autogen import UserProxyAgent, LLMConfig
 
-llm_config = {
-    "temperature": 0,
-    "config_list": config_list_from_json("OAI_CONFIG_LIST", filter_dict={"model": ["gpt-4o"]}),
-}
+llm_config = LLMConfig.from_json(path="OAI_CONFIG_LIST", temperature=0).where(model="gpt-4o")
 
 ## build agents
-captain_agent = CaptainAgent(
-    name="captain_agent",
-    llm_config=llm_config,
-    code_execution_config={"use_docker": False, "work_dir": "groupchat"},
-)
+with llm_config:
+    captain_agent = CaptainAgent(
+        name="captain_agent",
+        code_execution_config={"use_docker": False, "work_dir": "groupchat"},
+    )
 user_proxy = UserProxyAgent(
     name="user_proxy",
     human_input_mode="NEVER"
@@ -147,22 +144,19 @@ To use agents from an agent library, you just need to specify a `library_path` s
 
 ```python
 from autogen.agentchat.contrib.captainagent import CaptainAgent
-from autogen import UserProxyAgent, config_list_from_json
+from autogen import UserProxyAgent, LLMConfig
 
-llm_config = {
-    "temperature": 0,
-    "config_list": config_list_from_json("OAI_CONFIG_LIST", filter_dict={"model": ["gpt-4o"]}),
-}
+llm_config = LLMConfig.from_json(path="OAI_CONFIG_LIST", temperature=0).where(model="gpt-4o")
 
 ## build agents
-captain_agent = CaptainAgent(
-    name="captain_agent",
-    llm_config=llm_config,
-    nested_config=nested_mode_config,
-    agent_lib="captainagent_expert_library.json",
-    tool_lib="default",
-    code_execution_config={"use_docker": False, "work_dir": "groupchat"},
-)
+with llm_config:
+    captain_agent = CaptainAgent(
+        name="captain_agent",
+        nested_config=nested_mode_config,
+        agent_lib="captainagent_expert_library.json",
+        tool_lib="default",
+        code_execution_config={"use_docker": False, "work_dir": "groupchat"},
+    )
 user_proxy = UserProxyAgent(
     name="user_proxy",
     human_input_mode="NEVER"
