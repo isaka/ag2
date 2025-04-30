@@ -34,7 +34,7 @@ Install `autogen`:
 pip install autogen
 ```
 
-For more information, please refer to the [installation guide](https://docs.ag2.ai/docs/user-guide/basic-concepts/installing-ag2).
+For more information, please refer to the [installation guide](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/installing-ag2).
 </Info>
 </div>
 
@@ -42,9 +42,10 @@ For more information, please refer to the [installation guide](https://docs.ag2.
 ## Set your API Endpoint
 
 The
-[`config_list_from_json`](https://docs.ag2.ai/docs/api-reference/autogen/config_list_from_json#config-list-from-json)
+[`config_list_from_json`](https://docs.ag2.ai/latest/docs/api-reference/autogen/config_list_from_json/#autogen.config_list_from_json)
 function loads a list of configurations from an environment variable or
 a json file.
+
 
 ```python
 import io
@@ -68,7 +69,7 @@ config_list = autogen.config_list_from_json(
 
 <div class="tip">
 <Tip>
-Learn more about configuring LLMs for agents [here](https://docs.ag2.ai/docs/user-guide/basic-concepts/llm-configuration/llm-configuration).
+Learn more about configuring LLMs for agents [here](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/llm-configuration).
 </Tip>
 </div>
 
@@ -85,6 +86,7 @@ results from the sandbox environment and act accordingly.
 
 In this example, we demonstrate how to use code interpreter to solve
 math problems.
+
 
 ```python
 # Initiate an agent equipped with code interpreter
@@ -121,6 +123,7 @@ gpt_assistant.delete_assistant()
 Code Interpreter can outputs files, such as generating image diagrams.
 In this example, we demonstrate how to draw figures and download it.
 
+
 ```python
 gpt_assistant = GPTAssistantAgent(
     name="CoderAssistant",
@@ -144,6 +147,7 @@ user_proxy.initiate_chat(
 ```
 
 Now we have the file id. We can download and display it.
+
 
 ```python
 api_response = gpt_assistant.openai_client.files.with_raw_response.retrieve_content(

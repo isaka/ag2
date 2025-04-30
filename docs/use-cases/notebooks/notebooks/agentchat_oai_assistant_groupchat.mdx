@@ -18,7 +18,7 @@ AG2 offers conversable agents powered by LLM, tool or human, which can
 be used to perform tasks collectively via automated chat. This framework
 allows tool use and human participation through multi-agent
 conversation. Please find documentation about this feature
-[here](https://docs.ag2.ai/docs/Use-Cases/agent_chat).
+[here](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/conversable-agent/).
 
 In this notebook, we demonstrate how to get multiple `GPTAssistantAgent`
 converse through group chat.
@@ -36,7 +36,7 @@ Install `autogen`:
 pip install autogen
 ```
 
-For more information, please refer to the [installation guide](https://docs.ag2.ai/docs/user-guide/basic-concepts/installing-ag2).
+For more information, please refer to the [installation guide](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/installing-ag2).
 </Info>
 </div>
 
@@ -44,9 +44,10 @@ For more information, please refer to the [installation guide](https://docs.ag2.
 ## Set your API Endpoint
 
 The
-[`LLMConfig.from_json`](https://docs.ag2.ai/docs/api-reference/autogen/LLMConfig#from-json)
+[`LLMConfig.from_json`](https://docs.ag2.ai/latest/docs/api-reference/autogen/llm_config/LLMConfig)
 method loads a list of configurations from an environment variable or a
 json file.
+
 
 ```python
 import autogen
@@ -61,12 +62,13 @@ llm_config = autogen.LLMConfig.from_json(path="OAI_CONFIG_LIST", cache_seed=45).
 
 <div class="tip">
 <Tip>
-Learn more about configuring LLMs for agents [here](https://docs.ag2.ai/docs/user-guide/basic-concepts/llm-configuration/llm-configuration).
+Learn more about configuring LLMs for agents [here](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/llm-configuration).
 </Tip>
 </div>
 
 
 ## Define GPTAssistantAgent and GroupChat
+
 
 ```python
 # Define user proxy agent
@@ -101,6 +103,7 @@ manager = autogen.GroupChatManager(groupchat=groupchat, llm_config=llm_config)
 ## Initiate Group Chat
 
 Now all is set, we can initiate group chat.
+
 
 ```python
 user_proxy.initiate_chat(

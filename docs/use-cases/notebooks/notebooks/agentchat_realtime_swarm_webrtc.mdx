@@ -25,9 +25,9 @@ AG2 provides an intuitive programming interface to build and orchestrate
 swarms of agents. With `RealtimeAgent`, you can enhance swarm
 functionality, integrating real-time interactions alongside task
 automation. Check the
-[Documentation](https://docs.ag2.ai/docs/user-guide/advanced-concepts/swarm/deep-dive)
-and [Blog](https://docs.ag2.ai/blog/2024-11-17-Swarm) for further
-insights.
+[Documentation](https://docs.ag2.ai/latest/docs/user-guide/advanced-concepts/orchestration/swarm/deprecation)
+and [Blog](https://docs.ag2.ai/latest/docs/blog/2024/11/17/Swarm) for
+further insights.
 
 In this notebook, we implement OpenAI’s [airline customer service
 example](https://github.com/openai/swarm/tree/main/examples/airline) in
@@ -48,7 +48,7 @@ Install `ag2` with additional dependencies to run a fastAPI server:
 ```bash
 pip install "ag2", "fastapi>=0.115.0,<1", "uvicorn>=0.30.6,<1" "jinja2"
 ```
-For more information, please refer to the [installation guide](https://docs.ag2.ai/docs/user-guide/basic-concepts/installing-ag2).
+For more information, please refer to the [installation guide](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/installing-ag2).
 </Info>
 </div>
 
@@ -58,6 +58,7 @@ For more information, please refer to the [installation guide](https://docs.ag2.
 ```
 
 ## Import the dependencies
+
 
 ```python
 import os
@@ -77,9 +78,10 @@ from autogen.agentchat.realtime.experimental import RealtimeAgent
 ## Prepare your `llm_config` and `realtime_llm_config`
 
 The
-[`LLMConfig.form_json`](https://docs.ag2.ai/docs/api-reference/autogen/LLMConfig#from-json)
+[`LLMConfig.form_json`](https://docs.ag2.ai/latest/docs/api-reference/autogen/llm_config/LLMConfig)
 method loads a list of configurations from an environment variable or a
 json file.
+
 
 ```python
 swarm_llm_config = autogen.LLMConfig.from_json(
@@ -116,6 +118,7 @@ assert realtime_llm_config.config_list, (
 
 The prompts and utility functions remain unchanged from the original
 example.
+
 
 ```python
 # baggage/policies.py
@@ -249,6 +252,7 @@ def non_flight_enquiry() -> str:
 
 ## Define Agents and register functions
 
+
 ```python
 from autogen import ConversableAgent, OnCondition, register_hand_off
 
@@ -301,6 +305,7 @@ Now we register the handoffs for the agents. Note that you don’t need to
 define the transfer functions and pass them in. Instead, you can
 directly register the handoffs using the `ON_CONDITION` class.
 
+
 ```python
 # Register hand-offs
 register_hand_off(
@@ -333,6 +338,7 @@ in Jupyter.
 
 Please install nest_asyncio by running the following cell.
 
+
 ```python
 !pip install nest_asyncio
 ```
@@ -361,6 +367,7 @@ real-time agent interactions.
 
 This sets up a basic FastAPI server and provides a simple health-check
 endpoint to confirm that the server is operational.
+
 
 ```python
 from contextlib import asynccontextmanager
@@ -398,6 +405,7 @@ async def index_page():
 
 This code sets up static file handling, template rendering, and a
 dedicated endpoint to deliver the chat interface.
+
 
 ```python
 notebook_path = os.getcwd()
@@ -439,6 +447,7 @@ async def start_chat(request: Request):
 6.  **Run the Agent**: Start the `realtime_agent` to handle interactions
     in real time.
 
+
 ```python
 from autogen.agentchat.realtime.experimental import register_swarm
 
@@ -467,6 +476,7 @@ async def handle_media_stream(websocket: WebSocket):
 ```
 
 ### Run the app using uvicorn
+
 
 ```python
 uvicorn.run(app, host="0.0.0.0", port=PORT)

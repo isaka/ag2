@@ -19,7 +19,7 @@ AG2 offers conversable agents powered by LLM, tool or human, which can
 be used to perform tasks collectively via automated chat. This framework
 allows tool use and human participation through multi-agent
 conversation. Please find documentation about this feature
-[here](https://docs.ag2.ai/docs/Use-Cases/agent_chat).
+[here](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/conversable-agent/).
 
 RetrieveChat is a conversational system for retrieval-augmented code
 generation and question answering. In this notebook, we demonstrate how
@@ -60,7 +60,7 @@ Some extra dependencies are needed for this notebook, which can be installed via
 pip install autogen[openai,retrievechat] flaml[automl]
 ```
 
-For more information, please refer to the [installation guide](https://docs.ag2.ai/docs/user-guide/basic-concepts/installing-ag2).
+For more information, please refer to the [installation guide](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/installing-ag2).
 </Info>
 </div>
 
@@ -68,9 +68,10 @@ For more information, please refer to the [installation guide](https://docs.ag2.
 ## Set your API Endpoint
 
 The
-[`config_list_from_json`](https://docs.ag2.ai/docs/api-reference/autogen/config_list_from_json#config-list-from-json)
+[`config_list_from_json`](https://docs.ag2.ai/latest/docs/api-reference/autogen/config_list_from_json/#autogen.config_list_from_json)
 function loads a list of configurations from an environment variable or
 a json file.
+
 
 ```python
 import json
@@ -94,7 +95,7 @@ print("models to use: ", [config_list[i]["model"] for i in range(len(config_list
 
 <div class="tip">
 <Tip>
-Learn more about configuring LLMs for agents [here](https://docs.ag2.ai/docs/user-guide/basic-concepts/llm-configuration/llm-configuration).
+Learn more about configuring LLMs for agents [here](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/llm-configuration).
 </Tip>
 </div>
 
@@ -108,6 +109,7 @@ given in the user message. Later we will use the
 `RetrieveUserProxyAgent.message_generator` to combine the instructions
 and a retrieval augmented generation task for an initial prompt to be
 sent to the LLM assistant.
+
 
 ```python
 print("Accepted file formats for `docs_path`:")
@@ -128,7 +130,7 @@ assistant = AssistantAgent(
 )
 
 # 2. create the RetrieveUserProxyAgent instance named "ragproxyagent"
-# Refer to https://docs.ag2.ai/docs/reference/agentchat/contrib/retrieve_user_proxy_agent
+# Refer to https://docs.ag2.ai/latest/docs/api-reference/autogen/agentchat/contrib/retrieve_user_proxy_agent/RetrieveUserProxyAgent/#autogen.agentchat.contrib.retrieve_user_proxy_agent.RetrieveUserProxyAgent
 # and https://docs.ag2.ai/docs/reference/agentchat/contrib/vectordb/chromadb
 # for more information on the RetrieveUserProxyAgent and ChromaVectorDB
 ragproxyagent = RetrieveUserProxyAgent(
@@ -163,6 +165,7 @@ classification task and I want to train the model in 30 seconds. Use
 spark to parallel the training. Force cancel jobs if time limit is
 reached.
 
+
 ```python
 # reset the assistant. Always reset the assistant before starting a new conversation.
 assistant.reset()
@@ -186,6 +189,7 @@ generation.
 
 Problem: Who is the author of FLAML?
 
+
 ```python
 # reset the assistant. Always reset the assistant before starting a new conversation.
 assistant.reset()
@@ -203,6 +207,7 @@ feedbacks.
 
 Problem: how to build a time series forecasting model for stock price
 using FLAML?
+
 
 ```python
 # reset the assistant. Always reset the assistant before starting a new conversation.
@@ -222,6 +227,7 @@ Use RetrieveChat to answer a question and ask for human-in-loop
 feedbacks.
 
 Problem: Is there a function named `tune_automl` in FLAML?
+
 
 ```python
 # reset the assistant. Always reset the assistant before starting a new conversation.
@@ -249,6 +255,7 @@ RetrieveChat to answer them. For this particular example, we will be
 using the `gpt-3.5-turbo` model, and we will demonstrate RetrieveChat’s
 feature of automatically updating context in case the documents
 retrieved do not contain sufficient information.
+
 
 ```python
 config_list[0]["model"] = "gpt-35-turbo"  # change model to gpt-35-turbo
@@ -335,6 +342,7 @@ feature of automatically updating context in case the documents
 retrieved do not contain sufficient information. Moreover, we’ll
 demonstrate how to use customized prompt and few-shot learning to
 address tasks that are not pre-defined in RetrieveChat.
+
 
 ```python
 PROMPT_MULTIHOP = """You're a retrieve augmented chatbot. You answer user's questions based on your own knowledge and the context provided by the user. You must think step-by-step.

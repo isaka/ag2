@@ -17,18 +17,19 @@ title: 'Websockets: Streaming input and output using websockets'
 
 
 This notebook demonstrates how to use the
-[`IOStream`](https://docs.ag2.ai/docs/reference/io/websockets) class to
-stream both input and output using websockets. The use of websockets
-allows you to build web clients that are more responsive than the one
-using web methods. The main difference is that the webosockets allows
-you to push data while you need to poll the server for new response
-using web methods.
+[`IOStream`](https://docs.ag2.ai/latest/docs/api-reference/autogen/io/IOStream)
+class to stream both input and output using websockets. The use of
+websockets allows you to build web clients that are more responsive than
+the one using web methods. The main difference is that the webosockets
+allows you to push data while you need to poll the server for new
+response using web methods.
 
 In this guide, we explore the capabilities of the
-[`IOStream`](https://docs.ag2.ai/docs/reference/io/websockets) class. It
-is specifically designed to enhance the development of clients such as
-web clients which use websockets for streaming both input and output.
-The [`IOStream`](https://docs.ag2.ai/docs/reference/io/websockets)
+[`IOStream`](https://docs.ag2.ai/latest/docs/api-reference/autogen/io/IOStream)
+class. It is specifically designed to enhance the development of clients
+such as web clients which use websockets for streaming both input and
+output. The
+[`IOStream`](https://docs.ag2.ai/latest/docs/api-reference/autogen/io/IOStream)
 stands out by enabling a more dynamic and interactive user experience
 for web applications.
 
@@ -44,25 +45,25 @@ without the need for constant polling, thereby making web clients more
 efficient and responsive.
 
 The real power of websockets, leveraged through the
-[`IOStream`](https://docs.ag2.ai/docs/reference/io/websockets) class,
-lies in its ability to create highly responsive web clients. This
+[`IOStream`](https://docs.ag2.ai/latest/docs/api-reference/autogen/io/IOStream)
+class, lies in its ability to create highly responsive web clients. This
 responsiveness is critical for applications requiring real-time data
 updates such as chat applications. By integrating the
-[`IOStream`](https://docs.ag2.ai/docs/reference/io/websockets) class
-into your web application, you not only enhance user experience through
-immediate data transmission but also reduce the load on your server by
-eliminating unnecessary polling.
+[`IOStream`](https://docs.ag2.ai/latest/docs/api-reference/autogen/io/IOStream)
+class into your web application, you not only enhance user experience
+through immediate data transmission but also reduce the load on your
+server by eliminating unnecessary polling.
 
 In essence, the transition to using websockets through the
-[`IOStream`](https://docs.ag2.ai/docs/reference/io/websockets) class
-marks a significant enhancement in web client development. This approach
-not only streamlines the data exchange process between clients and
-servers but also opens up new possibilities for creating more
+[`IOStream`](https://docs.ag2.ai/latest/docs/api-reference/autogen/io/IOStream)
+class marks a significant enhancement in web client development. This
+approach not only streamlines the data exchange process between clients
+and servers but also opens up new possibilities for creating more
 interactive and engaging web applications. By following this guide,
 developers can harness the full potential of websockets and the
-[`IOStream`](https://docs.ag2.ai/docs/reference/io/websockets) class to
-push the boundaries of what is possible with web client responsiveness
-and interactivity.
+[`IOStream`](https://docs.ag2.ai/latest/docs/api-reference/autogen/io/IOStream)
+class to push the boundaries of what is possible with web client
+responsiveness and interactivity.
 
 ## Requirements
 
@@ -86,7 +87,7 @@ pip install -U ag2[openai,websockets] fastapi uvicorn
 > as `pyautogen`, `autogen`, and `ag2` are aliases for the same PyPI package.  
 
 
-For more information, please refer to the [installation guide](https://docs.ag2.ai/docs/user-guide/basic-concepts/installing-ag2).
+For more information, please refer to the [installation guide](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/installing-ag2).
 </Info>
 </div>
 
@@ -94,9 +95,10 @@ For more information, please refer to the [installation guide](https://docs.ag2.
 ## Set your API Endpoint
 
 The
-[`config_list_from_json`](https://docs.ag2.ai/docs/api-reference/autogen/config_list_from_json#config-list-from-json)
+[`config_list_from_json`](https://docs.ag2.ai/latest/docs/api-reference/autogen/config_list_from_json/#autogen.config_list_from_json)
 function loads a list of configurations from an environment variable or
 a json file.
+
 
 ```python
 from datetime import datetime
@@ -118,7 +120,7 @@ config_list = autogen.config_list_from_json(
 
 <div class="tip">
 <Tip>
-Learn more about configuring LLMs for agents [here](https://docs.ag2.ai/docs/user-guide/basic-concepts/llm-configuration/llm-configuration).
+Learn more about configuring LLMs for agents [here](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/llm-configuration).
 </Tip>
 </div>
 
@@ -138,12 +140,13 @@ AG2 framework with websockets.
 
 Upon a client’s connection to the websocket server, the server
 automatically initiates a new instance of the
-[`IOWebsockets`](https://docs.ag2.ai/docs/api-reference/autogen/io/IOWebsockets#iowebsockets)
+[`IOWebsockets`](https://docs.ag2.ai/latest/docs/api-reference/autogen/io/IOWebsockets/#autogen.io.IOWebsockets)
 class. This instance is crucial for managing the data flow between the
 server and the client. The `on_connect` function leverages this instance
 to set up the communication protocol, define interaction rules, and
 initiate any preliminary data exchanges or configurations required for
 the client-server interaction to proceed smoothly.
+
 
 ```python
 def on_connect(iostream: IOWebsockets) -> None:
@@ -260,6 +263,7 @@ incoming connections, process messages, and communicate responses back
 to the client, all critical functionalities for a robust websocket-based
 application.
 
+
 ```python
 with IOWebsockets.run_server_in_thread(on_connect=on_connect, port=8765) as uri:
     print(f" - test_setup() with websocket server running on {uri}.", flush=True)
@@ -331,6 +335,7 @@ send messages through the webpage, and the server processes these
 messages as per the logic defined in the on_connect function, showcasing
 the capabilities and responsiveness of the AG2 framework’s websocket
 handling in a user-friendly manner.
+
 
 ```python
 from contextlib import asynccontextmanager
@@ -480,6 +485,7 @@ and refine websocket communication logic before integrating it into
 larger frameworks or systems. The simplicity and accessibility of this
 testing setup make it an excellent starting point for developing a wide
 range of interactive web applications.
+
 
 ```python
 from http.server import HTTPServer, SimpleHTTPRequestHandler

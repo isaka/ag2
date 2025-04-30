@@ -45,7 +45,7 @@ Some extra dependencies are needed for this notebook, which can be installed via
 pip install "autogen[retrievechat-qdrant]" "flaml[automl]"
 ```
 
-For more information, please refer to the [installation guide](https://docs.ag2.ai/docs/user-guide/basic-concepts/installing-ag2).
+For more information, please refer to the [installation guide](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/installing-ag2).
 </Info>
 </div>
 
@@ -57,9 +57,10 @@ For more information, please refer to the [installation guide](https://docs.ag2.
 ## Set your API Endpoint
 
 The
-[`config_list_from_json`](https://docs.ag2.ai/docs/api-reference/autogen/config_list_from_json#config-list-from-json)
+[`config_list_from_json`](https://docs.ag2.ai/latest/docs/api-reference/autogen/config_list_from_json/#autogen.config_list_from_json)
 function loads a list of configurations from an environment variable or
 a json file.
+
 
 ```python
 from qdrant_client import QdrantClient
@@ -82,7 +83,7 @@ print("models to use: ", [config_list[i]["model"] for i in range(len(config_list
 
 <div class="tip">
 <Tip>
-Learn more about configuring LLMs for agents [here](https://docs.ag2.ai/docs/user-guide/basic-concepts/llm-configuration/llm-configuration).
+Learn more about configuring LLMs for agents [here](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/llm-configuration).
 </Tip>
 </div>
 
@@ -104,6 +105,7 @@ prompt to be sent to the LLM assistant.
 
 ### You can find the list of all the embedding models supported by Qdrant [here](https://qdrant.github.io/fastembed/examples/Supported_Models/). 
 
+
 ```python
 # 1. create an AssistantAgent instance named "assistant"
 assistant = AssistantAgent(
@@ -121,7 +123,7 @@ sentence_transformer_ef = SentenceTransformer("all-distilroberta-v1").encode
 client = QdrantClient(":memory:")
 
 # 2. create the RetrieveUserProxyAgent instance named "ragproxyagent"
-# Refer to https://docs.ag2.ai/docs/reference/agentchat/contrib/retrieve_user_proxy_agent
+# Refer to https://docs.ag2.ai/latest/docs/api-reference/autogen/agentchat/contrib/retrieve_user_proxy_agent/RetrieveUserProxyAgent/#autogen.agentchat.contrib.retrieve_user_proxy_agent.RetrieveUserProxyAgent
 # and https://docs.ag2.ai/docs/reference/agentchat/contrib/vectordb/qdrant
 # for more information on the RetrieveUserProxyAgent and QdrantVectorDB
 ragproxyagent = RetrieveUserProxyAgent(
@@ -155,6 +157,7 @@ feedbacks.
 
 Problem: Is there a function named `tune_automl` in FLAML?
 
+
 ```python
 # reset the assistant. Always reset the assistant before starting a new conversation.
 assistant.reset()
@@ -171,6 +174,7 @@ Use RetrieveChat to answer a question that is not related to code
 generation.
 
 Problem: Who is the author of FLAML?
+
 
 ```python
 # reset the assistant. Always reset the assistant before starting a new conversation.

@@ -19,7 +19,7 @@ AG2 offers conversable agents powered by LLM, tool, or human, which can
 be used to perform tasks collectively via automated chat. This framework
 allows tool use and human participation through multi-agent
 conversation. Please find documentation about this feature
-[here](https://docs.ag2.ai/docs/Use-Cases/agent_chat).
+[here](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/conversable-agent/).
 
 In this notebook, we demonstrate how to use `AssistantAgent` and
 `UserProxyAgent` to solve a challenging math problem with human
@@ -41,6 +41,7 @@ code written by `AssistantAgent` and return the execution results
 AG2 requires `Python>=3.9`. To run this notebook example, please
 install:
 
+
 ```bash
 pip install pyautogen[openai]
 ```
@@ -53,9 +54,10 @@ pip install pyautogen[openai]
 ## Set your API Endpoint
 
 The
-[`config_list_from_json`](https://docs.ag2.ai/docs/api-reference/autogen/config_list_from_json#config-list-from-json)
+[`config_list_from_json`](https://docs.ag2.ai/latest/docs/api-reference/autogen/config_list_from_json/#autogen.config_list_from_jsong_list_from_json)
 function loads a list of configurations from an environment variable or
 a json file.
+
 
 ```python
 import json
@@ -72,6 +74,7 @@ a json file named “OAI_CONFIG_LIST”. It filters the configs by models
 names are kept in the list based on the filter condition.
 
 The config list looks like the following:
+
 
 ```python
 config_list = [
@@ -98,12 +101,13 @@ config_list = [
 
 You can set the value of config_list in any way you prefer. Please refer
 to this [User
-Guide](https://docs.ag2.ai/docs/user-guide/advanced-concepts/llm-configuration-deep-dive)
+Guide](https://docs.ag2.ai/latest/docs/user-guide/advanced-concepts/llm-configuration-deep-dive)
 for full code examples of the different methods.
 
 ## Construct Agents
 
 We construct the assistant agent and the user proxy agent.
+
 
 ```python
 # create an AssistantAgent instance named "assistant"
@@ -135,6 +139,7 @@ proxy agent will try to execute the code suggested by the assistant
 agent on behalf of you, or terminate if the assistant agent sends a
 “TERMINATE” signal at the end of the message.
 
+
 ```python
 math_problem_to_solve = """
 Find $a + b + c$, given that $x+y \\neq -1$ and
@@ -161,6 +166,7 @@ skipped feedback in the end and the conversation is finished.
 After the conversation is finished, we can save the conversations
 between the two agents. The conversation can be accessed from
 `user_proxy.chat_messages`.
+
 
 ```python
 print(user_proxy.chat_messages[assistant])

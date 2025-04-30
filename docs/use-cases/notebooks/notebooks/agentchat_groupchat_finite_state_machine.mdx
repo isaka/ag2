@@ -20,7 +20,7 @@ AG2 offers conversable agents powered by LLMs, tools, or humans, which
 can be used to perform tasks collectively via automated chat. This
 framework allows tool use and human participation through multi-agent
 conversation. Please find documentation about this feature
-[here](https://docs.ag2.ai/docs/Use-Cases/agent_chat).
+[here](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/conversable-agent/).
 
 This notebook is about using graphs to define the transition paths
 amongst speakers.
@@ -37,7 +37,7 @@ Install `pyautogen`:
 pip install pyautogen[openai]
 ```
 
-For more information, please refer to the [installation guide](https://docs.ag2.ai/docs/user-guide/basic-concepts/installing-ag2).
+For more information, please refer to the [installation guide](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/installing-ag2).
 </Info>
 </div>
 
@@ -75,6 +75,7 @@ transition paths, where each node represents an agent and each directed
 edge represents possible transition paths. Let’s illustrate the current
 transition paths for a GroupChat with five agents.
 
+
 ```python
 config_list_gpt4 = {
     "timeout": 600,
@@ -100,6 +101,7 @@ visualize_speaker_transitions_dict(allowed_speaker_transitions_dict, agents)
 1.  Hub and Spoke
 2.  Sequential Team Operations
 3.  Think aloud and debate
+
 
 ```python
 agents = [ConversableAgent(name=f"Agent{i}", llm_config=False) for i in range(5)]
@@ -174,6 +176,7 @@ allowed agents or disallowed agents. “allowed” means the
 lists of allowed agents.
 
 ### Team Operations
+
 
 ```python
 # Create an empty directed graph

@@ -26,13 +26,14 @@ AG2 provides an intuitive programming interface to build and orchestrate
 swarms of agents. With RealtimeAgent, you can enhance swarm
 functionality, integrating real-time interactions alongside task
 automation. Check the
-[Documentation](https://docs.ag2.ai/docs/user-guide/advanced-concepts/swarm/deep-dive)
-and [Blog](https://docs.ag2.ai/blog/2024-11-17-Swarm) for further
-insights.
+[Documentation](https://docs.ag2.ai/latest/docs/user-guide/advanced-concepts/orchestration/swarm/deprecation)
+and [Blog](https://docs.ag2.ai/latest/docs/blog/2024/11/17/Swarm) for
+further insights.
 
 In this notebook, we implement OpenAI’s [airline customer service
 example](https://github.com/openai/swarm/tree/main/examples/airline) in
 AG2 using the RealtimeAgent for enhanced interaction.
+
 
 
 <div class="note">
@@ -63,7 +64,7 @@ Install `ag2`:
 pip install "ag2[twilio]"
 ```
 
-For more information, please refer to the [installation guide](https://docs.ag2.ai/docs/user-guide/basic-concepts/installing-ag2).
+For more information, please refer to the [installation guide](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/installing-ag2).
 </Info>
 </div>
 
@@ -75,9 +76,10 @@ For more information, please refer to the [installation guide](https://docs.ag2.
 ## Prepare your `llm_config` and `realtime_llm_config`
 
 The
-[`LLMConfig.from_json`](https://docs.ag2.ai/docs/api-reference/autogen/LLMConfig#from-json)
+[`LLMConfig.from_json`](https://docs.ag2.ai/latest/docs/api-reference/autogen/llm_config/LLMConfig)
 method loads a list of configurations from an environment variable or a
 json file.
+
 
 ```python
 import autogen
@@ -116,6 +118,7 @@ assert realtime_llm_config.config_list, (
 
 The prompts and utility functions remain unchanged from the original
 example.
+
 
 ```python
 # baggage/policies.py
@@ -249,6 +252,7 @@ def non_flight_enquiry() -> str:
 
 ## Define Agents and register functions
 
+
 ```python
 from autogen import ConversableAgent, OnCondition, register_hand_off
 
@@ -301,6 +305,7 @@ Now we register the handoffs for the agents. Note that you don’t need to
 define the transfer functions and pass them in. Instead, you can
 directly register the handoffs using the `OnCondition` class.
 
+
 ```python
 # Register hand-offs
 register_hand_off(
@@ -332,6 +337,7 @@ uvicorn uses its own event loop. nest_asyncio will allow uvicorn to run
 in Jupyter.
 
 Please install nest_asyncio by running the following cell.
+
 
 ```python
 !pip install nest_asyncio
@@ -382,6 +388,7 @@ Here’s what happens when you run the code:
 
 Once the server is running, you can connect a Twilio phone call to the
 AI assistant and test the RealtimeAgent’s capabilities!
+
 
 ```python
 from contextlib import asynccontextmanager

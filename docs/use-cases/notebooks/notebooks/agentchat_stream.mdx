@@ -19,7 +19,7 @@ AG2 offers conversable agents powered by LLM, tool, or human, which can
 be used to perform tasks collectively via automated chat. This framework
 allows tool use and human participation through multi-agent
 conversation. Please find documentation about this feature
-[here](https://docs.ag2.ai/docs/Use-Cases/agent_chat).
+[here](https://docs.ag2.ai/latest/docs/user-guide/basic-concepts/conversable-agent/).
 
 In this notebook, we demonstrate how to use customized agents to
 continuously acquire news from the web and ask for investment
@@ -29,6 +29,7 @@ suggestions.
 
 AG2 requires `Python>=3.9`. To run this notebook example, please
 install:
+
 
 ```bash
 pip install autogen[openai]
@@ -42,9 +43,10 @@ pip install autogen[openai]
 ## Set your API Endpoint
 
 The
-[`config_list_from_json`](https://docs.ag2.ai/docs/api-reference/autogen/config_list_from_json#config-list-from-json)
+[`config_list_from_json`](https://docs.ag2.ai/latest/docs/api-reference/autogen/config_list_from_json/#autogen.config_list_from_jsong_list_from_jsong_list_from_jsong_list_from_jsong_list_from_json)
 function loads a list of configurations from an environment variable or
 a json file.
+
 
 ```python
 import asyncio
@@ -61,6 +63,7 @@ a json file named “OAI_CONFIG_LIST”. It filters the configs by models
 names are kept in the list based on the filter condition.
 
 The config list looks like the following:
+
 
 ```python
 config_list = [
@@ -87,7 +90,7 @@ config_list = [
 
 You can set the value of config_list in any way you prefer. Please refer
 to this [User
-Guide](https://docs.ag2.ai/docs/user-guide/advanced-concepts/llm-configuration-deep-dive)
+Guide](https://docs.ag2.ai/latest/docs/user-guide/advanced-concepts/llm-configuration-deep-dive)
 for full code examples of the different methods.
 
 ## Example Task: Investment suggestion with realtime data
@@ -97,6 +100,7 @@ we use an assistant agent to provide investment suggestions based on the
 data continually.
 
 First, we use the following code to simulate the data stream process.
+
 
 ```python
 def get_market_news(ind, ind_upper):
@@ -167,6 +171,7 @@ Then, we construct agents. An assistant agent is created to answer the
 question using LLM. A UserProxyAgent is created to ask questions, and
 add the new data in the conversation when they are available.
 
+
 ```python
 # create an AssistantAgent instance named "assistant"
 assistant = autogen.AssistantAgent(
@@ -209,6 +214,7 @@ user_proxy.register_reply(autogen.AssistantAgent, add_data_reply, position=2, co
 
 We invoke the `a_initiate_chat()` method of the user proxy agent to
 start the conversation.
+
 
 ```python
 await user_proxy.a_initiate_chat(
